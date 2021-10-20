@@ -1,0 +1,926 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 21 min SDK version: armeabi-v7a",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1825478110
+  },
+  {
+    "level_": 0,
+    "message_": "rebuilding JSON C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\.cxx\\Debug\\414n5669\\armeabi-v7a\\android_gradle_build.json due to:",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1991849392
+  },
+  {
+    "level_": 0,
+    "message_": "- expected json C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\.cxx\\Debug\\414n5669\\armeabi-v7a\\android_gradle_build.json file is not present, will remove stale json folder",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1407873460
+  },
+  {
+    "level_": 0,
+    "message_": "- missing previous command file C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\.cxx\\Debug\\414n5669\\armeabi-v7a\\metadata_generation_command.txt, will remove stale json folder",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 2025926258
+  },
+  {
+    "level_": 0,
+    "message_": "- command changed from previous, will remove stale json folder",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 695359310
+  },
+  {
+    "level_": 0,
+    "message_": "removing stale contents from \u0027C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\.cxx\\Debug\\414n5669\\armeabi-v7a\u0027",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1111581328
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\.cxx\\Debug\\414n5669\\armeabi-v7a\u0027",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 519318500
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake Executable : C:\\Users\\rlf03\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe\narguments : \n-HC:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d21\n-DANDROID_PLATFORM\u003dandroid-21\n-DANDROID_ABI\u003darmeabi-v7a\n-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a\n-DANDROID_NDK\u003dC:\\Users\\rlf03\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\n-DCMAKE_ANDROID_NDK\u003dC:\\Users\\rlf03\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\n-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\rlf03\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\rlf03\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\build\\intermediates\\cxx\\Debug\\414n5669\\obj\\armeabi-v7a\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\build\\intermediates\\cxx\\Debug\\414n5669\\obj\\armeabi-v7a\n-DCMAKE_BUILD_TYPE\u003dDebug\n-BC:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\.cxx\\Debug\\414n5669\\armeabi-v7a\n-GNinja\n-DANDROID_STL\u003dc++_shared\njvmArgs : \n\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1945164218
+  },
+  {
+    "level_": 0,
+    "message_": "\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1547285236
+  },
+  {
+    "level_": 0,
+    "message_": "[\u003d\u003d \"CMake Server\" \u003d\u003d[\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1570566118
+  },
+  {
+    "level_": 0,
+    "message_": "{\"supportedProtocolVersions\":[{\"isExperimental\":true,\"major\":1,\"minor\":1}],\"type\":\"hello\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 855181509
+  },
+  {
+    "level_": 0,
+    "message_": "]\u003d\u003d \"CMake Server\" \u003d\u003d]\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -35602010
+  },
+  {
+    "level_": 0,
+    "message_": "{\n  \"type\": \"handshake\",\n  \"cookie\": \"gradle-cmake-cookie\",\n  \"protocolVersion\": {\n    \"isExperimental\": true,\n    \"major\": 1,\n    \"minor\": 1\n  },\n  \"sourceDirectory\": \"C:/Users/rlf03/Documents/skuproject/skuproject/opencvsdk/libcxx_helper\",\n  \"buildDirectory\": \"C:/Users/rlf03/Documents/skuproject/skuproject/opencvsdk/.cxx/Debug/414n5669/armeabi-v7a\",\n  \"generator\": \"Ninja\"\n}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1767072840
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"gradle-cmake-cookie\",\"inReplyTo\":\"handshake\",\"type\":\"reply\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1972641319
+  },
+  {
+    "level_": 0,
+    "message_": "{\n  \"type\": \"configure\",\n  \"cacheArguments\": [\n    \"\",\n    \"-DCMAKE_SYSTEM_NAME\\u003dAndroid\",\n    \"-DCMAKE_EXPORT_COMPILE_COMMANDS\\u003dON\",\n    \"-DCMAKE_SYSTEM_VERSION\\u003d21\",\n    \"-DANDROID_PLATFORM\\u003dandroid-21\",\n    \"-DANDROID_ABI\\u003darmeabi-v7a\",\n    \"-DCMAKE_ANDROID_ARCH_ABI\\u003darmeabi-v7a\",\n    \"-DANDROID_NDK\\u003dC:\\\\Users\\\\rlf03\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\21.4.7075529\",\n    \"-DCMAKE_ANDROID_NDK\\u003dC:\\\\Users\\\\rlf03\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\21.4.7075529\",\n    \"-DCMAKE_TOOLCHAIN_FILE\\u003dC:\\\\Users\\\\rlf03\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\21.4.7075529\\\\build\\\\cmake\\\\android.toolchain.cmake\",\n    \"-DCMAKE_MAKE_PROGRAM\\u003dC:\\\\Users\\\\rlf03\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.10.2.4988404\\\\bin\\\\ninja.exe\",\n    \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\\u003dC:\\\\Users\\\\rlf03\\\\Documents\\\\skuproject\\\\skuproject\\\\opencvsdk\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\414n5669\\\\obj\\\\armeabi-v7a\",\n    \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\\u003dC:\\\\Users\\\\rlf03\\\\Documents\\\\skuproject\\\\skuproject\\\\opencvsdk\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\414n5669\\\\obj\\\\armeabi-v7a\",\n    \"-DCMAKE_BUILD_TYPE\\u003dDebug\",\n    \"-DANDROID_STL\\u003dc++_shared\"\n  ]\n}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 344900712
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working C compiler: C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -525065423
+  },
+  {
+    "level_": 0,
+    "message_": "Check for working C compiler: C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1713255895
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":33,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1798300581
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working C compiler: C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 518793837
+  },
+  {
+    "level_": 0,
+    "message_": "Check for working C compiler: C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1504591157
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compiler ABI info\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1855275393
+  },
+  {
+    "level_": 0,
+    "message_": "Detecting C compiler ABI info",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1319507849
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":65,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -450570662
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compiler ABI info - done\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 2112781262
+  },
+  {
+    "level_": 0,
+    "message_": "Detecting C compiler ABI info - done",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -746458346
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compile features\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 907725338
+  },
+  {
+    "level_": 0,
+    "message_": "Detecting C compile features",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1476937570
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":96,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1709618084
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":126,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1514535678
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":155,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 873838454
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting C compile features - done\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -981320749
+  },
+  {
+    "level_": 0,
+    "message_": "Detecting C compile features - done",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -146668085
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working CXX compiler: C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -52561391
+  },
+  {
+    "level_": 0,
+    "message_": "Check for working CXX compiler: C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1450916599
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":184,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1032754710
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Check for working CXX compiler: C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -977924211
+  },
+  {
+    "level_": 0,
+    "message_": "Check for working CXX compiler: C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 956792405
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compiler ABI info\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -954887937
+  },
+  {
+    "level_": 0,
+    "message_": "Detecting CXX compiler ABI info",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -809585417
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":211,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 323905697
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compiler ABI info - done\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 476698958
+  },
+  {
+    "level_": 0,
+    "message_": "Detecting CXX compiler ABI info - done",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -587852138
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compile features\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 244033434
+  },
+  {
+    "level_": 0,
+    "message_": "Detecting CXX compile features",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1416107294
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":237,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1155537165
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":262,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -294685227
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":287,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 651038934
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":311,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1944989876
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Detecting CXX compile features - done\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -479908269
+  },
+  {
+    "level_": 0,
+    "message_": "Detecting CXX compile features - done",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1527025077
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"progressCurrent\":1000,\"progressMaximum\":1000,\"progressMessage\":\"Configuring\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 55809786
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"message\":\"Configuring done\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -171416003
+  },
+  {
+    "level_": 0,
+    "message_": "Configuring done",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1548185349
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"configure\",\"type\":\"reply\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 322608570
+  },
+  {
+    "level_": 0,
+    "message_": "{\"type\":\"compute\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -989934257
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"progressCurrent\":1000,\"progressMaximum\":1000,\"progressMessage\":\"Generating\",\"progressMinimum\":0,\"type\":\"progress\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -61347316
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"message\":\"Generating done\",\"type\":\"message\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1960852951
+  },
+  {
+    "level_": 0,
+    "message_": "Generating done",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1296382346
+  },
+  {
+    "level_": 0,
+    "message_": "{\"cookie\":\"\",\"inReplyTo\":\"compute\",\"type\":\"reply\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1360163903
+  },
+  {
+    "level_": 0,
+    "message_": "{\"type\":\"cmakeInputs\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -918699216
+  },
+  {
+    "level_": 0,
+    "message_": "{\"buildFiles\":[{\"isCMake\":true,\"isTemporary\":false,\"sources\":[\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineSystem.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystem.cmake.in\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCCompiler.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompiler.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine-C.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android/Determine-Compiler.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeFindBinUtils.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-FindBinUtils.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCXXCompiler.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompiler.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Determine-CXX.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android/Determine-Compiler.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeFindBinUtils.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-FindBinUtils.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompiler.cmake.in\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCCompiler.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCompilerCommon.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompilerABI.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeParseImplicitLinkInfo.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompilerABI.c\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompileFeatures.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Internal/FeatureTesting.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C-FeatureTests.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCXXCompiler.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeTestCompilerCommon.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompilerABI.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeParseImplicitLinkInfo.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeDetermineCompileFeatures.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Internal/FeatureTesting.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-FeatureTests.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX-TestableFeatures.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXCompiler.cmake.in\"]},{\"isCMake\":false,\"isTemporary\":false,\"sources\":[\"CMakeLists.txt\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/build/cmake/platforms.cmake\",\"C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake\"]},{\"isCMake\":false,\"isTemporary\":true,\"sources\":[\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/3.10.2/CMakeSystem.cmake\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/3.10.2/CMakeCCompiler.cmake\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/feature_tests.c\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/feature_tests.c\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/feature_tests.c\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/3.10.2/CMakeCCompiler.cmake\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/feature_tests.cxx\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/feature_tests.cxx\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/feature_tests.cxx\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/feature_tests.cxx\",\"../.cxx/Debug/414n5669/armeabi-v7a/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake\"]}],\"cmakeRootDirectory\":\"C:/Users/rlf03/AppData/Local/Android/Sdk/cmake/3.10.2.4988404/share/cmake-3.10\",\"cookie\":\"\",\"inReplyTo\":\"cmakeInputs\",\"sourceDirectory\":\"C:/Users/rlf03/Documents/skuproject/skuproject/opencvsdk/libcxx_helper\",\"type\":\"reply\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 370045442
+  },
+  {
+    "level_": 0,
+    "message_": "{\"type\":\"codemodel\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1219852794
+  },
+  {
+    "level_": 0,
+    "message_": "{\"configurations\":[{\"name\":\"Debug\",\"projects\":[{\"buildDirectory\":\"C:/Users/rlf03/Documents/skuproject/skuproject/opencvsdk/.cxx/Debug/414n5669/armeabi-v7a\",\"name\":\"Project\",\"sourceDirectory\":\"C:/Users/rlf03/Documents/skuproject/skuproject/opencvsdk/libcxx_helper\",\"targets\":[{\"artifacts\":[\"C:/Users/rlf03/Documents/skuproject/skuproject/opencvsdk/.cxx/Debug/414n5669/armeabi-v7a/libopencv_jni_shared.a\"],\"buildDirectory\":\"C:/Users/rlf03/Documents/skuproject/skuproject/opencvsdk/.cxx/Debug/414n5669/armeabi-v7a\",\"fileGroups\":[{\"compileFlags\":\"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE\u003d2 -march\u003darmv7-a -mthumb -Wformat -Werror\u003dformat-security   -O0 -fno-limit-debug-info  -fPIC  \",\"isGenerated\":false,\"language\":\"CXX\",\"sources\":[\"dummy.cpp\"]}],\"fullName\":\"libopencv_jni_shared.a\",\"linkerLanguage\":\"CXX\",\"name\":\"opencv_jni_shared\",\"sourceDirectory\":\"C:/Users/rlf03/Documents/skuproject/skuproject/opencvsdk/libcxx_helper\",\"sysroot\":\"C:/Users/rlf03/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot\",\"type\":\"STATIC_LIBRARY\"}]}]}],\"cookie\":\"\",\"inReplyTo\":\"codemodel\",\"type\":\"reply\"}\n",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 933126677
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 383013059
+  },
+  {
+    "level_": 0,
+    "message_": "write command file C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\.cxx\\Debug\\414n5669\\armeabi-v7a\\metadata_generation_command.txt",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 332985338
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "C:\\Users\\rlf03\\Documents\\skuproject\\skuproject\\opencvsdk\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|armeabi-v7a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1973881153
+  }
+]

@@ -5,8 +5,8 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-set(pathPROJECT C:/Users/HANSUNG/AndroidStudioProjects/CVtest) # 수정필요
-set(pathOPENCV ${pathPROJECT}/sdk)
+set(pathPROJECT C:/Users/rlf03/Documents/skuproject/skuproject) # 수정필요
+set(pathOPENCV ${pathPROJECT}/opencvsdk)
 set(pathLIBOPENCV_JAVA ${pathOPENCV}/native/libs/${ANDROID_ABI}/libopencv_java4.so)
 
 set(CMAKE_VERBOSE_MAKEFILE on)
