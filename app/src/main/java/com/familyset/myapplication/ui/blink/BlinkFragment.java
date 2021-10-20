@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.familyset.myapplication.R;
+import com.familyset.myapplication.databinding.FragmentBlinkBinding;
 
 import org.opencv.android.CameraBridgeViewBase;
 
@@ -28,17 +29,26 @@ public class BlinkFragment extends Fragment{
     private CameraBridgeViewBase mOpenCvCameraView;
     private BlinkFragmentViewModel blinkFragmentViewModel;
 
+    private FragmentBlinkBinding binding;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_blink, container, false);
+        binding = FragmentBlinkBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        //View view = inflater.inflate(R.layout.fragment_blink, container, false);
         mOpenCvCameraView = (CameraBridgeViewBase)view.findViewById(R.id.activity_surface_view);
         mOpenCvCameraView.setVisibility(SurfaceView.GONE);
         //mOpenCvCameraView.setCvCameraViewListener();
         mOpenCvCameraView.setCameraIndex(0);
+
         blinkFragmentViewModel = new BlinkFragmentViewModel(view, getActivity());
-        return view;
+
+        return binding.getRoot();
+    }
+
+    private void initView() {
 
     }
 
