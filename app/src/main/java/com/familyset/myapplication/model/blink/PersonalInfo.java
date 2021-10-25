@@ -1,4 +1,4 @@
-package com.familyset.myapplication.data.model.blink;
+package com.familyset.myapplication.model.blink;
 
 import org.opencv.core.Rect;
 

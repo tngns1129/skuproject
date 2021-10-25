@@ -40,7 +40,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class BlinkFragment extends Fragment{
 
-    //private CameraBridgeViewBase mOpenCvCameraView;
     private BlinkFragmentViewModel viewModel = null;
 
     private FragmentBlinkBinding binding;
@@ -58,13 +57,6 @@ public class BlinkFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentBlinkBinding.inflate(getLayoutInflater());
-        //View view = binding.getRoot();
-        //View view = inflater.inflate(R.layout.fragment_blink, container, false);
-        //mOpenCvCameraView = (CameraBridgeViewBase)view.findViewById(R.id.activity_surface_view);
-        //mOpenCvCameraView.setVisibility(SurfaceView.GONE);
-        //mOpenCvCameraView.setCvCameraViewListener();
-        //mOpenCvCameraView.setCameraIndex(0);
-
         viewModel = new ViewModelProvider(this).get(BlinkFragmentViewModel.class);
         initView();
         observeLiveData();
@@ -75,15 +67,15 @@ public class BlinkFragment extends Fragment{
         binding.onoff.setBackgroundColor(Color.GRAY);
         binding.onoff.setText("OFF");
         binding.onoff.setOnClickListener(v -> {
-            if (!viewModel.isRunning()) {
+            if (viewModel.isRunning()) {
+                viewModel.stop();
+                hideBlinkUI();
+            } else {
                 viewModel.start(
                         binding.firstspiner.getSelectedItem().toString(),
                         binding.secondspiner.getSelectedItem().toString()
                 );
                 showBlinkUI();
-            } else {
-                viewModel.stop();
-                hideBlinkUI();
             }
 
         });
@@ -166,7 +158,7 @@ public class BlinkFragment extends Fragment{
     public void onPause() {
         super.onPause();
         binding.activitySurfaceView.disableView();
-        if (!viewModel.isRunning()) {
+        if (viewModel.isRunning()) {
             viewModel.stop();
         }
 
@@ -178,7 +170,7 @@ public class BlinkFragment extends Fragment{
         super.onResume();
         Log.d("onresume", "onresume");
 
-        if (!viewModel.isRunning()) {
+        if (viewModel.isRunning()) {
             viewModel.initOpenCV(getContext());
         }
         /*

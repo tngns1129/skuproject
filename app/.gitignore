@@ -1,3 +1,3 @@
-/build
-/.cxx
+build/
+.cxx/
 /src/main/cpp/CMakeLists.txt

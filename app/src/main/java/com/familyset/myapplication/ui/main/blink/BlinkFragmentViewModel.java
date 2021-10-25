@@ -7,28 +7,15 @@ import static org.opencv.imgproc.Imgproc.TM_CCORR_NORMED;
 import static org.opencv.imgproc.Imgproc.TM_SQDIFF;
 import static org.opencv.imgproc.Imgproc.TM_SQDIFF_NORMED;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Message;
 import android.util.Log;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.familyset.myapplication.R;
-import com.familyset.myapplication.data.model.blink.PersonalInfo;
+import com.familyset.myapplication.model.blink.PersonalInfo;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -53,7 +40,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 import javax.inject.Inject;
