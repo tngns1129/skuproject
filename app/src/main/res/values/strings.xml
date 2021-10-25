@@ -4,4 +4,13 @@
         <item>소리</item>
         <item>진동</item>
     </string-array>
+    <string-array name="main_tab_name">
+        <item>사용</item>
+        <item>미사용</item>
+        <item>통계</item>
+        <item>설정</item>
+    </string-array>
+    <string name="login_failed">"Login failed"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must not be blank</string>
 </resources>
