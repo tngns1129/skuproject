@@ -69,19 +69,41 @@
         app:layout_constraintBottom_toTopOf="@+id/info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:translationZ="-1dp"
-        />
-    <TextView
+        android:translationZ="-1dp" />
+
+    <LinearLayout
         android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello"
+        android:orientation="vertical"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/onoff"
+        app:layout_constraintBottom_toTopOf="@id/onoff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1">
-    </TextView>
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="dis 0"/>
+
+        <TextView
+            android:id="@+id/distance_avg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="0"/>
+
+        <TextView
+            android:id="@+id/blink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="0"/>
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/onoff"
