@@ -170,6 +170,7 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                         lines.add("Rotation: " + sensorOrientation);
                         lines.add("Inference time: " + lastProcessingTimeMs + "ms");
                         lines.add("Humans found: " + lastHumansFound);
+                        lines.add("bad pose start : ");
 
                         //borderedText.drawLines(canvas, 10, canvas.getHeight() - 10, lines); // bottom
                         borderedText.drawLinesTop(canvas, copy.getWidth() * scaleFactor + 30, 10, lines); // top-right
@@ -281,7 +282,7 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
             Set<Integer> part_idxs = human.parts.keySet();
 
             LOGGER.i("COORD =====================================");
-            //# draw point
+            //사람 뼈 마다 점 그리는 부분
             //for i in range(CocoPart.Background.value):
             for (Common.CocoPart i : Common.CocoPart.values()) {
                 //if i not in part_idxs:
@@ -307,7 +308,7 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                 LOGGER.i("COORD %s, %f, %f", i.toString(), part_coord.x, part_coord.y);
             }
 
-            //# draw line
+            //# 나온 뼈를 잇는 선을 그리는 부분
             //for pair_order, pair in enumerate(CocoPairsRender):
             for (int pair_order = 0; pair_order < Common.CocoPairsRender.length; pair_order++) {
                 int[] pair = Common.CocoPairsRender[pair_order];
@@ -318,12 +319,12 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
 
                 //img_copied = cv2.line(img_copied, centers[pair[0]], centers[pair[1]], CocoColors[pair_order], 3)
                 Paint paint = new Paint();
-                Log.d("borns" , Integer.toString(pair_order));
+                Log.d("borns " , Integer.toString(pair_order));
                 int i = wrongPose.getBornWrong(pair_order);
                 paint.setColor(Color.rgb(Common.CocoColors[i][0], Common.CocoColors[i][1], Common.CocoColors[i][2]));
                 paint.setStrokeWidth(HUMAN_RADIUS);
                 paint.setStyle(Style.STROKE);
-
+                Log.d("time ", wrongPose.getTime());
                 canvas.drawLine(centers[pair[0]].x, centers[pair[0]].y, centers[pair[1]].x, centers[pair[1]].y, paint);
             }
             wrongPose.poseReset();

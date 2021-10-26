@@ -1,5 +1,8 @@
 package com.ricardotejo.openpose;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class WrongPose {
 
     private int neckx = 0;
@@ -14,27 +17,39 @@ public class WrongPose {
     private int hipLy = 0;
     private int nosex = 0;
     private int nosey = 0;
+    long mNow;
+    Date mDate;
+    SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+    String time = "";
 
     public int getBornWrong(int index){
         int i;
         i = 6;
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
 
         if(index == 12) {
             if(earRx == 0 && earLx == 0){
-                if(Math.abs(nosex - neckx) > 20)
+                if(Math.abs(nosex - neckx) > 20) {
                     i = 0; //잘못된 자세
+                    time = mFormat.format(mDate);
+                }
             }
             else if(earRx==0 || earLx==0){
                 if(earRx < earLx)
                     earRx = earLx;
                 else
                     earLx = earRx;
-                if(Math.abs((earRx + earLx)/2 - neckx) > 20)
+                if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
                     i = 0; //잘못된 자세
+                    time = mFormat.format(mDate);
+                }
             }
             else{
-                if(Math.abs((earRx + earLx)/2 - neckx) > 20)
+                if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
                     i = 0; //잘못된 자세
+                    time = mFormat.format(mDate);
+                }
             }
 
         }
@@ -46,8 +61,10 @@ public class WrongPose {
                 else
                     hipLx = hipRx;
             }
-            if(Math.abs((hipRx + hipLx)/2 - neckx) > 20)
+            if(Math.abs((hipRx + hipLx)/2 - neckx) > 20){
                 i = 0; //잘못된 자세
+                time = mFormat.format(mDate);
+            }
         }
 
         return i;
@@ -92,5 +109,10 @@ public class WrongPose {
         hipRy = 0;
         hipLx = 0;
         hipLy = 0;
+        time = "";
+    }
+
+    public String getTime(){
+        return time;
     }
 }
