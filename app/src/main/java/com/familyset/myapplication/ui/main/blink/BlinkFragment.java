@@ -79,8 +79,6 @@ public class BlinkFragment extends Fragment{
             }
 
         });
-
-        binding.templereset.setVisibility(View.GONE);
         binding.templereset.setOnClickListener(v -> viewModel.resetLearnFrames());
 
         binding.firstset.setText("첫번째 설정");
@@ -113,6 +111,8 @@ public class BlinkFragment extends Fragment{
         viewModel.distanceAvg.observe(getViewLifecycleOwner(), distanceAvg -> binding.distanceAvg.setText(distanceAvg));
 
         viewModel.blink.observe(getViewLifecycleOwner(), blink -> binding.blink.setText(blink));
+
+        viewModel.templeset.observe(getViewLifecycleOwner(), templeset -> binding.templeset.setText(templeset));
     }
 
     private void showBlinkUI() {
@@ -146,7 +146,6 @@ public class BlinkFragment extends Fragment{
         binding.onoff.setText("OFF");
         binding.onoff.setBackgroundColor(Color.GRAY);
 
-        binding.templereset.setVisibility(View.GONE);
         binding.info.setVisibility(View.GONE);
         binding.activitySurfaceView.setVisibility(View.GONE);
 
@@ -170,7 +169,7 @@ public class BlinkFragment extends Fragment{
         super.onResume();
         Log.d("onresume", "onresume");
 
-        if (viewModel.isRunning()) {
+        if (!viewModel.isRunning()) {
             viewModel.initOpenCV(getContext());
         }
         /*

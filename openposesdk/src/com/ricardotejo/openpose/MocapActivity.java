@@ -2,6 +2,10 @@
 
 package com.ricardotejo.openpose;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Instrumentation;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
@@ -71,6 +75,15 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
 
     Bitmap SAMPLE_IMAGE;
     private WrongPose wrongPose = new WrongPose();
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        wrongPose.setFinishTime();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("통계").setMessage(wrongPose.getAll()).create().show();
+    }
+
 
     @Override
     public void onPreviewSizeChosen(final Size size, final int rotation) {
@@ -324,7 +337,6 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                 paint.setColor(Color.rgb(Common.CocoColors[i][0], Common.CocoColors[i][1], Common.CocoColors[i][2]));
                 paint.setStrokeWidth(HUMAN_RADIUS);
                 paint.setStyle(Style.STROKE);
-                Log.d("time ", wrongPose.getTime());
                 canvas.drawLine(centers[pair[0]].x, centers[pair[0]].y, centers[pair[1]].x, centers[pair[1]].y, paint);
             }
             wrongPose.poseReset();

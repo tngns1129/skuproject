@@ -1,6 +1,7 @@
 package com.ricardotejo.openpose;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class WrongPose {
@@ -17,10 +18,17 @@ public class WrongPose {
     private int hipLy = 0;
     private int nosex = 0;
     private int nosey = 0;
+    private String startTime;
+    private String finishTime;
     long mNow;
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
-    String time = "";
+    private ArrayList<String> wrongNeckTimes = new ArrayList();
+    private ArrayList<String> wrongWaistTimes = new ArrayList();
+
+    WrongPose(){
+        setStartTime();
+    }
 
     public int getBornWrong(int index){
         int i;
@@ -32,7 +40,7 @@ public class WrongPose {
             if(earRx == 0 && earLx == 0){
                 if(Math.abs(nosex - neckx) > 20) {
                     i = 0; //잘못된 자세
-                    time = mFormat.format(mDate);
+                    wrongNeckTimes.add(mFormat.format(mDate));
                 }
             }
             else if(earRx==0 || earLx==0){
@@ -42,13 +50,13 @@ public class WrongPose {
                     earLx = earRx;
                 if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
                     i = 0; //잘못된 자세
-                    time = mFormat.format(mDate);
+                    wrongNeckTimes.add(mFormat.format(mDate));
                 }
             }
             else{
                 if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
                     i = 0; //잘못된 자세
-                    time = mFormat.format(mDate);
+                    wrongNeckTimes.add(mFormat.format(mDate));
                 }
             }
 
@@ -63,10 +71,9 @@ public class WrongPose {
             }
             if(Math.abs((hipRx + hipLx)/2 - neckx) > 20){
                 i = 0; //잘못된 자세
-                time = mFormat.format(mDate);
+                wrongWaistTimes.add(mFormat.format(mDate));
             }
         }
-
         return i;
     }
 
@@ -109,10 +116,21 @@ public class WrongPose {
         hipRy = 0;
         hipLx = 0;
         hipLy = 0;
-        time = "";
     }
 
-    public String getTime(){
-        return time;
+    public void setStartTime() {
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+        startTime = mFormat.format(mDate);
     }
+    public void setFinishTime() {
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+        finishTime = mFormat.format(mDate);
+    }
+    public String getAll(){
+        return "시작시간 : " + startTime + "\n끝난시간 : " + finishTime + "\ndd : " + wrongNeckTimes.size();
+    }
+
+
 }

@@ -70,11 +70,12 @@ public class BlinkFragmentViewModel extends ViewModel {
     private ArrayList<Double> areaL = new ArrayList();
     private Rect eye_right = new Rect();
     private Rect eye_left = new Rect();
-    private PersonalInfo personalInfo;
+    private PersonalInfo personalInfo = null;
     private long mNow;
     private Date mDate;
     private SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
     private BaseLoaderCallback mLoaderCallback;
+    private Boolean beforeBlink = false;
 
     private int count = 0;
 
@@ -88,6 +89,9 @@ public class BlinkFragmentViewModel extends ViewModel {
 
     private MutableLiveData<String> _blink = new MutableLiveData<>();
     public LiveData<String> blink = _blink;
+
+    private MutableLiveData<String> _templeset = new MutableLiveData<>();
+    public LiveData<String> templeset = _templeset;
 
     //static {
     //    System.loadLibrary("opencv_java4");
@@ -111,6 +115,7 @@ public class BlinkFragmentViewModel extends ViewModel {
         if (personalInfo == null) {
             personalInfo = initPersonalInfo(fSet, sSet);
         }
+        personalInfo.setBlinkNumber(0);
         running = true;
     }
 
@@ -275,22 +280,30 @@ public class BlinkFragmentViewModel extends ViewModel {
                 teplateR = get_template(mJavaDetectorEye, eyearea_right, 24);
                 teplateL = get_template(mJavaDetectorEye, eyearea_left, 24);
                 learn_frames++;
+                _templeset.postValue("학습중");
             } else if(learn_frames == 5){
                 eye_right = match_eye(eyearea_right, teplateR, method);
                 eye_left = match_eye(eyearea_left, teplateL, method);
                 personalInfo.setEyeAreaAvg_30();
                 _distanceAvg.postValue(Double.toString(personalInfo.getEyeAreaAvg_30()));
                 learn_frames++;
+                _templeset.postValue("");
             }
             else {
                 // 템플릿 학습 완료시
                 eye_right = match_eye(eyearea_right, teplateR, method);
                 eye_left = match_eye(eyearea_left, teplateL, method);
-                if (Math.abs(eye1area - eye2area) < 5000)
-                    personalInfo.blinkEyeCheck(eyearea_right, eye_right, eyearea_left, eye_left);
+                if (eyesArray.length > 1) {
+                    if(Math.abs(eyesArray[0].area()-eyesArray[1].area()) < 3000) {
+                        if (!beforeBlink)
+                            beforeBlink = personalInfo.blinkEyeCheck(eyearea_right, eye_right, eyearea_left, eye_left);
+                        else beforeBlink = false;
+                    }
+                }
                 //return null;
             }
         } else {
+            personalInfo.areaListAdd(0,0);
             if (learn_frames > 4) {
                 //return null;
             }
@@ -309,7 +322,6 @@ public class BlinkFragmentViewModel extends ViewModel {
 
     private void updatePersonalInfoLiveData() {
         _distance.postValue(Double.toString(personalInfo.getArea()));
-
         _blink.postValue(Integer.toString(personalInfo.getBlinkNumber()));
     }
 

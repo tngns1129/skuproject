@@ -1,5 +1,7 @@
 package com.familyset.myapplication.model.blink;
 
+import android.util.Log;
+
 import org.opencv.core.Rect;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ public class PersonalInfo {
     private String finishTime;
     private ArrayList<Double> rightEyeAreaList = new ArrayList();
     private ArrayList<Double> leftEyeAreaList = new ArrayList();
+    private ArrayList<Double> eyeDistance = new ArrayList();
     private int blink = 0;
     private ArrayList<Double> listRx = new ArrayList();
     private ArrayList<Double> listRy = new ArrayList();
@@ -59,6 +62,16 @@ public class PersonalInfo {
         eyeAreaAvg_30 = Double.parseDouble(getFiveEyeAreaAvg());
     }
 
+    public String getAllEyeDistanceAvg() {
+        double sum = 0;
+        double result = 0;
+        for(int i = 0; i < eyeDistance.size(); i++){
+            sum = sum + eyeDistance.get(i);
+        }
+        result = sum/eyeDistance.size();
+        return Double.toString(result);
+    }
+
     public String getAllEyeAreaAvg(){
         double sumR = 0;
         double sumL = 0;
@@ -76,7 +89,7 @@ public class PersonalInfo {
     }
 
     //눈범위의 넓이를 이용해 거리를 측정
-    //왼쪽눈과 오른쪽눈의 넓이 차이가 5000이상 나면
+    //왼쪽눈과 오른쪽눈의 넓이 차이가 3000이상 나면
     //감지 이상을 판단하여 큰쪽 눈으로만 측정한다.
     public double getArea(){
         double result;
@@ -89,7 +102,7 @@ public class PersonalInfo {
             R = 0;
             L = 0;
         }
-        if(Math.abs(R-L) > 5000) {
+        if(Math.abs(R-L) > 3000) {
             if(R > L){
                 result = R;
             }else{
@@ -99,6 +112,9 @@ public class PersonalInfo {
         else{
             result = (R + L);
         }
+        result = areaToCm(result, eyeAreaAvg_30);
+        eyeDistance.add(result);
+        result = getDistance(eyeDistance);
         return result;
     }
 
@@ -109,15 +125,47 @@ public class PersonalInfo {
         blink = a;
     }
 
-    public void areaToCm(double a, double cm_30){
-        a = 200000 - a;
+    public double areaToCm(double now, double cm_30){
+        double result;
+        double i;
+        i = now - cm_30;
+        i = i/2500;
+        result = 30 - i;
+        return result;
+    }
+
+    public double getDistance(ArrayList<Double> eyeDistance) {
+        double result;
+        double max;
+        double min;
+        double sum = 0;
+        max = eyeDistance.get(eyeDistance.size() - 1);
+        min = eyeDistance.get(eyeDistance.size() - 1);
+        if(eyeDistance.size() > 5){
+            for(int i = eyeDistance.size() - 5; i < eyeDistance.size(); i++){
+                if(max < eyeDistance.get(i)){
+                    max = eyeDistance.get(i);
+                }
+                if(min > eyeDistance.get(i)){
+                    min = eyeDistance.get(i);
+                }
+            }
+            for(int i = eyeDistance.size() - 5; i < eyeDistance.size(); i++){
+                sum = sum + eyeDistance.get(i);
+            }
+            sum = sum - max - min;
+            result = sum/3;
+        } else {
+            result = 0;
+        }
+        return result;
     }
 
     //눈 깜빡임 감지 눈 전체 범위와 눈동자 범위가
     //전의 5번 평균보다 크게 어긋날 시
     //눈이 깜빡였다고 판단
-    public void blinkEyeCheck(Rect eyearea_right, Rect eye_right, Rect eyearea_left, Rect eye_left){
-
+    public boolean blinkEyeCheck(Rect eyearea_right, Rect eye_right, Rect eyearea_left, Rect eye_left){
+        boolean plusBlink = false;
         double rx = Math.abs(eyearea_right.tl().x - eye_right.tl().x);
         double ry = Math.abs(eyearea_right.tl().y - eye_right.tl().y);
         double lx = Math.abs(eyearea_left.tl().x - eye_left.tl().x);
@@ -148,14 +196,15 @@ public class PersonalInfo {
             listLy.remove(0);
             listLy.add(ly);
         }
-
         if(listLy.size()>5){
             if(Math.abs(rx - getAverage(listRx)) > 20 || Math.abs(ry - getAverage(listRy)) > 20){
                 if(Math.abs(lx - getAverage(listLx)) > 20 || Math.abs(ly - getAverage(listLy)) > 20){
                     blink++;
+                    plusBlink = true;
                 }
             }
         }
+        return plusBlink;
     }
 
     //array list 의 평균을 마지막 수 빼고 구함
@@ -173,7 +222,7 @@ public class PersonalInfo {
         finishTime = time;
     }
     public String getAll(){
-        return "시작시간 : " + startTime + "\n끝난시간 : " + finishTime + "\n거리 평균 : " + getAllEyeAreaAvg() + "\n깜박임 횟수 : " + getBlinkNumber();
+        return "시작시간 : " + startTime + "\n끝난시간 : " + finishTime + "\n거리 평균 : " + getAllEyeDistanceAvg() + "\n깜박임 횟수 : " + getBlinkNumber();
     }
 
     public double getEyeAreaAvg_30() {
