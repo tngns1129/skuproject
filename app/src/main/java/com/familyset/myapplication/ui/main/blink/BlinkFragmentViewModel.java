@@ -15,7 +15,10 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.familyset.myapplication.R;
+import com.familyset.myapplication.data.repo.PersonalInfoRepository;
+import com.familyset.myapplication.data.repo.UsersRepository;
 import com.familyset.myapplication.model.blink.PersonalInfo;
+import com.familyset.myapplication.model.login.LoggedInUser;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -45,6 +48,8 @@ import java.util.Date;
 import javax.inject.Inject;
 
 import dagger.hilt.android.lifecycle.HiltViewModel;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 @HiltViewModel
 public class BlinkFragmentViewModel extends ViewModel {
@@ -98,8 +103,18 @@ public class BlinkFragmentViewModel extends ViewModel {
     //    System.loadLibrary("native-lib");
     //}
 
+    private UsersRepository usersRepository;
+
+    private PersonalInfoRepository personalInfoRepository;
+
+    private LoggedInUser user = null;
+
     @Inject
-    public BlinkFragmentViewModel() {}
+    public BlinkFragmentViewModel(UsersRepository usersRepository,
+                                  PersonalInfoRepository personalInfoRepository) {
+        this.usersRepository = usersRepository;
+        this.personalInfoRepository = personalInfoRepository;
+    }
 
     //public BlinkFragmentViewModel(Context context){
         //this.view = view;
@@ -131,7 +146,7 @@ public class BlinkFragmentViewModel extends ViewModel {
     }
 
     public void stop() {
-        finishPersonalInfo();
+        savePersonalInfo();
         running = false;
     }
 
@@ -139,16 +154,28 @@ public class BlinkFragmentViewModel extends ViewModel {
         return running;
     }
 
-    private void finishPersonalInfo() {
+    private void savePersonalInfo() {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
-        personalInfo.finishObserve(mFormat.format(mDate));
+        personalInfo.finishObserve(mDate);
+
+        if (user == null) {
+            user = usersRepository.getUser();
+        }
+        personalInfoRepository.savePersonalInfo(user.getUserId(), personalInfo)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        //on success
+                        personalInfo -> Log.d("VModel", personalInfo.getAll()),
+                        error -> Log.d("VModel", error.getMessage())
+                );
     }
 
     private PersonalInfo initPersonalInfo(String fSet, String sSet) {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
-        PersonalInfo personalInfo = new PersonalInfo(mFormat.format(mDate),fSet,sSet);
+        PersonalInfo personalInfo = new PersonalInfo(mDate,fSet,sSet);
         return personalInfo;
     }
 
