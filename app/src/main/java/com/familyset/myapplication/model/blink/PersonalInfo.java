@@ -5,26 +5,27 @@ import android.util.Log;
 import org.opencv.core.Rect;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PersonalInfo {
-    private double eyeAreaAvg_30 = 0;
-    private double firstEyeArea;
-    private double allEyeArea;
-    private String firstSetting;
-    private String secondSetting;
-    private String startTime;
-    private String finishTime;
-    private ArrayList<Double> rightEyeAreaList = new ArrayList();
-    private ArrayList<Double> leftEyeAreaList = new ArrayList();
-    private ArrayList<Double> eyeDistance = new ArrayList();
+    private transient double eyeAreaAvg_30 = 0;
+    private transient double firstEyeArea;
+    private transient double allEyeArea;
+    private transient String firstSetting;
+    private transient String secondSetting;
+    private Date startTime;
+    private Date finishTime;
+    private transient ArrayList<Double> rightEyeAreaList = new ArrayList();
+    private transient ArrayList<Double> leftEyeAreaList = new ArrayList();
+    private transient ArrayList<Double> eyeDistance = new ArrayList();
     private ArrayList<Double> eyeDistanceCm = new ArrayList();
     private int blink = 0;
-    private ArrayList<Double> listRx = new ArrayList();
-    private ArrayList<Double> listRy = new ArrayList();
-    private ArrayList<Double> listLx = new ArrayList();
-    private ArrayList<Double> listLy = new ArrayList();
+    private transient ArrayList<Double> listRx = new ArrayList();
+    private transient ArrayList<Double> listRy = new ArrayList();
+    private transient ArrayList<Double> listLx = new ArrayList();
+    private transient ArrayList<Double> listLy = new ArrayList();
 
-    public PersonalInfo(String time, String firstSet, String secondSet){
+    public PersonalInfo(Date time, String firstSet, String secondSet){
         startTime = time;
         firstSetting = firstSet;
         secondSetting = secondSet;
@@ -69,7 +70,9 @@ public class PersonalInfo {
         for(int i = 0; i < eyeDistance.size(); i++){
             sum = sum + eyeDistance.get(i);
         }
-        result = sum/eyeDistance.size();
+        if (eyeDistance.size() != 0) {
+            result = sum/eyeDistance.size();
+        }
         return Double.toString(result);
     }
 
@@ -220,7 +223,7 @@ public class PersonalInfo {
         return result;
     }
 
-    public void finishObserve(String time){
+    public void finishObserve(Date time){
         finishTime = time;
     }
     public String getAll(){

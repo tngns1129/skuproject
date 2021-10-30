@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.familyset.myapplication.R;
+import com.familyset.myapplication.model.login.Login;
 import com.familyset.myapplication.model.login.LoginFormState;
 import com.familyset.myapplication.model.login.LoginResponse;
 import com.familyset.myapplication.data.repo.UsersRepository;
@@ -45,17 +46,20 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String username, String password) {
         if (isValidUsername(username) && isValidPassword(password)) {
+            Login login = new Login(username, password);
 
-            usersRepository.login(username, password)
+            usersRepository.login(login)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                         // on success
-                        loggedInUser ->
-                        _loginResponse.setValue(new LoginResponse(loggedInUser)),
+                        loggedInUser ->{
+                            //Log.d("LoginViewModel", loggedInUser.getUserId() + "," + loggedInUser.getDisplayName());
+                            _loginResponse.setValue(new LoginResponse(loggedInUser));
+                        },
                         // on error
                         error -> {
-                            Log.d("LoginViewModel", error.getMessage());
+                            //Log.d("LoginViewModel", error.getMessage());
                             _loginResponse.setValue(new LoginResponse(R.string.login_failed));
                         }
                     );
