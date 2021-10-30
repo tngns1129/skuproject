@@ -17,6 +17,7 @@ public class PersonalInfo {
     private ArrayList<Double> rightEyeAreaList = new ArrayList();
     private ArrayList<Double> leftEyeAreaList = new ArrayList();
     private ArrayList<Double> eyeDistance = new ArrayList();
+    private ArrayList<Double> eyeDistanceCm = new ArrayList();
     private int blink = 0;
     private ArrayList<Double> listRx = new ArrayList();
     private ArrayList<Double> listRy = new ArrayList();
@@ -115,6 +116,7 @@ public class PersonalInfo {
         result = areaToCm(result, eyeAreaAvg_30);
         eyeDistance.add(result);
         result = getDistance(eyeDistance);
+        eyeDistanceCm.add(result);
         return result;
     }
 
