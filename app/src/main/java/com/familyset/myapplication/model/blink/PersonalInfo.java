@@ -17,7 +17,7 @@ public class PersonalInfo {
     private Date finishTime;
     private transient ArrayList<Double> rightEyeAreaList = new ArrayList();
     private transient ArrayList<Double> leftEyeAreaList = new ArrayList();
-    private ArrayList<Double> eyeDistance = new ArrayList();
+    private transient ArrayList<Double> eyeDistance = new ArrayList();
     private ArrayList<Double> eyeDistanceCm = new ArrayList();
     private int blink = 0;
     private transient ArrayList<Double> listRx = new ArrayList();
