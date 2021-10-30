@@ -15,9 +15,8 @@ public class PersonalInfo {
     private transient String secondSetting;
     private Date startTime;
     private Date finishTime;
-    private transient ArrayList<EyesArea> eyesAreas = new ArrayList<>();
-    private ArrayList<Double> rightEyeAreaList = new ArrayList();
-    private ArrayList<Double> leftEyeAreaList = new ArrayList();
+    private transient ArrayList<Double> rightEyeAreaList = new ArrayList();
+    private transient ArrayList<Double> leftEyeAreaList = new ArrayList();
     private ArrayList<Double> eyeDistance = new ArrayList();
     private ArrayList<Double> eyeDistanceCm = new ArrayList();
     private int blink = 0;
@@ -35,8 +34,6 @@ public class PersonalInfo {
     public void areaListAdd(double R, double L){
         rightEyeAreaList.add(R);
         leftEyeAreaList.add(L);
-        EyesArea eyesArea = new EyesArea(R, L);
-        eyesAreas.add(eyesArea);
     }
 
     public String getFiveEyeAreaAvg(){
