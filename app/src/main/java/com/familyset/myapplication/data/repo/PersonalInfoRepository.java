@@ -40,12 +40,11 @@ public class PersonalInfoRepository {
     }
 
     public Single<PersonalInfo> savePersonalInfo(String userId, PersonalInfo personalInfo) {
-        Log.d("PRepository", userId + ", " + personalInfo.getAll());
         return Single.create(singleOnSubscribe -> {
             try {
                 Response<APIResponse<PersonalInfo>> response = usersService.savePersonalInfo(userId, personalInfo).execute();
                 if (response.isSuccessful() && response.body() != null) {
-                    Log.d("PRepository", response.body().getData().getAll());
+                    Log.d("PRepository", response.body().getData().toString());
                     singleOnSubscribe.onSuccess(response.body().getData());
                 } else {
                     Log.d("PRepository", response.message());

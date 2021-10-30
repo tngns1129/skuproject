@@ -70,7 +70,9 @@ public class PersonalInfo {
         for(int i = 0; i < eyeDistance.size(); i++){
             sum = sum + eyeDistance.get(i);
         }
-        result = sum/eyeDistance.size();
+        if (eyeDistance.size() != 0) {
+            result = sum/eyeDistance.size();
+        }
         return Double.toString(result);
     }
 

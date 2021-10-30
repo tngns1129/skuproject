@@ -19,6 +19,7 @@ import com.familyset.myapplication.data.repo.PersonalInfoRepository;
 import com.familyset.myapplication.data.repo.UsersRepository;
 import com.familyset.myapplication.model.blink.PersonalInfo;
 import com.familyset.myapplication.model.login.LoggedInUser;
+import com.familyset.myapplication.model.login.LoginResponse;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -164,11 +165,15 @@ public class BlinkFragmentViewModel extends ViewModel {
         }
         personalInfoRepository.savePersonalInfo(user.getUserId(), personalInfo)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        //on success
-                        personalInfo -> Log.d("VModel", personalInfo.getAll()),
-                        error -> Log.d("VModel", error.getMessage())
+                        // on success
+                        personalInfo ->{
+                            Log.d("BlinkViewModel", personalInfo.toString());
+                        },
+                        // on error
+                        error -> {
+                            Log.d("BlinkViewModel", error.getMessage());
+                        }
                 );
     }
 
