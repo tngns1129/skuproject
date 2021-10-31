@@ -69,13 +69,12 @@ public class BlinkFragment extends Fragment{
         binding.onoff.setOnClickListener(v -> {
             if (viewModel.isRunning()) {
                 viewModel.stop();
-                hideBlinkUI();
             } else {
                 viewModel.start(
+                        getContext(),
                         binding.firstspiner.getSelectedItem().toString(),
                         binding.secondspiner.getSelectedItem().toString()
                 );
-                showBlinkUI();
             }
 
         });
@@ -113,6 +112,14 @@ public class BlinkFragment extends Fragment{
         viewModel.blink.observe(getViewLifecycleOwner(), blink -> binding.blink.setText(blink));
 
         viewModel.templeset.observe(getViewLifecycleOwner(), templeset -> binding.templeset.setText(templeset));
+
+        viewModel.running.observe(getViewLifecycleOwner(), running -> {
+            if (running) {
+                showBlinkUI();
+            } else {
+                hideBlinkUI();
+            }
+        });
     }
 
     private void showBlinkUI() {
@@ -156,9 +163,8 @@ public class BlinkFragment extends Fragment{
     @Override
     public void onPause() {
         super.onPause();
-        binding.activitySurfaceView.disableView();
         if (viewModel.isRunning()) {
-            viewModel.stop();
+            binding.activitySurfaceView.disableView();
         }
 
         Log.d("onpause", "onpause");
@@ -169,9 +175,13 @@ public class BlinkFragment extends Fragment{
         super.onResume();
         Log.d("onresume", "onresume");
 
-        if (!viewModel.isRunning()) {
-            viewModel.initOpenCV(getContext());
+        if (viewModel.isRunning()) {
+            binding.activitySurfaceView.enableView();
         }
+
+        //if (!viewModel.isRunning()) {
+        //    viewModel.initOpenCV(getContext());
+        //}
         /*
         if (!OpenCVLoader.initDebug()) {
             Log.d(TAG, "onResume :: Internal OpenCV library not found.");
@@ -186,7 +196,10 @@ public class BlinkFragment extends Fragment{
     @Override
     public void onDestroy() {
         super.onDestroy();
-        binding.activitySurfaceView.disableView();
+        if (viewModel.isRunning()) {
+            binding.activitySurfaceView.disableView();
+            viewModel.stop();
+        }
     }
 
     //퍼미션 관련 메소드

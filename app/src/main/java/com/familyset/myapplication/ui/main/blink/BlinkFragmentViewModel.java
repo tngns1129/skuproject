@@ -85,7 +85,8 @@ public class BlinkFragmentViewModel extends ViewModel {
 
     private int count = 0;
 
-    private boolean running = false;
+    private MutableLiveData<Boolean> _running = new MutableLiveData<>();
+    public LiveData<Boolean> running = _running;
 
     private MutableLiveData<String> _distance = new MutableLiveData<>();
     public LiveData<String> distance = _distance;
@@ -127,12 +128,9 @@ public class BlinkFragmentViewModel extends ViewModel {
         return personalInfo.getAll();
     }
 
-    public void start(String fSet, String sSet) {
-        if (personalInfo == null) {
-            personalInfo = initPersonalInfo(fSet, sSet);
-        }
-        personalInfo.setBlinkNumber(0);
-        running = true;
+    public void start(Context context, String fSet, String sSet) {
+        personalInfo = initPersonalInfo(fSet, sSet);
+        initOpenCV(context);
     }
 
     public void initOpenCV(Context context) {
@@ -148,11 +146,14 @@ public class BlinkFragmentViewModel extends ViewModel {
 
     public void stop() {
         savePersonalInfo();
-        running = false;
     }
 
     public boolean isRunning() {
-        return running;
+        if (_running.getValue() == null) {
+            return false;
+        } else {
+            return _running.getValue();
+        }
     }
 
     private void savePersonalInfo() {
@@ -169,10 +170,12 @@ public class BlinkFragmentViewModel extends ViewModel {
                         // on success
                         personalInfo ->{
                             Log.d("BlinkViewModel", personalInfo.toString());
+                            _running.postValue(false);
                         },
                         // on error
                         error -> {
                             Log.d("BlinkViewModel", error.getMessage());
+                            _running.postValue(false);
                         }
                 );
     }
@@ -181,6 +184,7 @@ public class BlinkFragmentViewModel extends ViewModel {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         PersonalInfo personalInfo = new PersonalInfo(mDate,fSet,sSet);
+        personalInfo.setBlinkNumber(0);
         return personalInfo;
     }
 
@@ -241,6 +245,10 @@ public class BlinkFragmentViewModel extends ViewModel {
                                     } else {
                                         Log.i(TAG, "Loaded cascade classifier from " + mCascadeFileEye.getAbsolutePath());
                                     }
+                                }
+
+                                if (mCascadeFile != null && mCascadeFileEye != null) {
+                                    _running.setValue(true);
                                 }
                             } catch (FileNotFoundException e) {
                                 e.printStackTrace();
