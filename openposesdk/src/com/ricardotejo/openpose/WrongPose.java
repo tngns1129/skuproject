@@ -168,6 +168,16 @@ public class WrongPose {
         long finishSum = 0;
         Date f1;
         Date f2;
+        if(wrongNeckTimes.size()%2 == 1){
+            mNow = System.currentTimeMillis();
+            mDate = new Date(mNow);
+            wrongNeckTimes.add(mFormatTime.format(mDate));
+        }
+        if(wrongWaistTimes.size()%2 == 1){
+            mNow = System.currentTimeMillis();
+            mDate = new Date(mNow);
+            wrongWaistTimes.add(mFormatTime.format(mDate));
+        }
 
         for(int i = 0; i < timeStamp.size(); i++){
             if(i % 2 == 0){
@@ -177,13 +187,7 @@ public class WrongPose {
                 f2 = new SimpleDateFormat("hhmmss").parse(timeStamp.get(i));
                 finishSum = finishSum + f2.getTime();
             }
-            if(timeStamp.size()%2 == 1){
-                mNow = System.currentTimeMillis();
-                mDate = new Date(mNow);
-                String finish = mFormatTime.format(mDate);
-                f2 = new SimpleDateFormat("hhmmss").parse(finish);
-                finishSum = finishSum + f2.getTime();
-            }
+
         }
         return finishSum - startSum;
     }
