@@ -159,22 +159,24 @@ public class BlinkFragmentViewModel extends ViewModel {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         personalInfo.finishObserve(mDate);
-
+        try {
         if (user == null) {
             user = usersRepository.getUser();
         }
-        personalInfoRepository.savePersonalInfo(user.getUserId(), personalInfo)
-                .subscribeOn(Schedulers.io())
-                .subscribe(
-                        // on success
-                        personalInfo ->{
-                            Log.d("BlinkViewModel", personalInfo.toString());
-                        },
-                        // on error
-                        error -> {
-                            Log.d("BlinkViewModel", error.getMessage());
-                        }
-                );
+
+            personalInfoRepository.savePersonalInfo(user.getUserId(), personalInfo)
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(
+                            // on success
+                            personalInfo -> {
+                                Log.d("BlinkViewModel", personalInfo.toString());
+                            },
+                            // on error
+                            error -> {
+                                Log.d("BlinkViewModel", error.getMessage());
+                            }
+                    );
+        }catch (Exception e){}
     }
 
     private PersonalInfo initPersonalInfo(String fSet, String sSet) {

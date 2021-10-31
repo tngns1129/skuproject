@@ -3,6 +3,7 @@ package com.familyset.myapplication.ui.main.blink;
 import static android.Manifest.permission.CAMERA;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -81,11 +83,12 @@ public class BlinkFragment extends Fragment{
         });
         binding.templereset.setOnClickListener(v -> viewModel.resetLearnFrames());
 
-        binding.firstset.setText("첫번째 설정");
+        binding.firstset.setText("알림 받을 거리");
         binding.secondset.setText("두번째 설정");
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.blinkfragmentfirstspinner, R.layout.support_simple_spinner_dropdown_item);
-        binding.firstspiner.setAdapter(adapter);
-        binding.secondspiner.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.blinkfragmentfirstspinner, R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.blinkfragmentsecondspinner, R.layout.support_simple_spinner_dropdown_item);
+        binding.firstspiner.setAdapter(adapter1);
+        binding.secondspiner.setAdapter(adapter2);
 
         binding.activitySurfaceView.setCvCameraViewListener(new CameraBridgeViewBase.CvCameraViewListener2() {
             @Override
@@ -105,8 +108,27 @@ public class BlinkFragment extends Fragment{
         });
     }
 
+    private static Toast sToast;
+    public static void showToast(Context context, String message) {
+        if (sToast == null) {
+            sToast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+        } else {
+            sToast.setText(message);
+        }
+        sToast.show();
+    }
+
+
     private void observeLiveData() {
-        viewModel.distance.observe(getViewLifecycleOwner(), distance -> binding.distance.setText(distance));
+        viewModel.distance.observe(getViewLifecycleOwner(), distance -> {
+            binding.distance.setText(distance);
+            if (Double.parseDouble(distance) < Double.parseDouble(binding.firstspiner.getSelectedItem().toString())) {
+                showToast(getActivity(), "Toast Message");
+            }
+
+        });
+
+
 
         viewModel.distanceAvg.observe(getViewLifecycleOwner(), distanceAvg -> binding.distanceAvg.setText(distanceAvg));
 

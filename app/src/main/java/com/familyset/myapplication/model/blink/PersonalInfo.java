@@ -67,13 +67,16 @@ public class PersonalInfo {
     public String getAllEyeDistanceAvg() {
         double sum = 0;
         double result = 0;
+        int zerocount = 0;
         for(int i = 0; i < eyeDistance.size(); i++){
-            sum = sum + eyeDistance.get(i);
+            if(eyeDistance.get(i) != 0) {
+                sum = sum + eyeDistance.get(i);
+            }else{zerocount++;}
         }
         if (eyeDistance.size() != 0) {
-            result = sum/eyeDistance.size();
+            result = sum/(eyeDistance.size()-zerocount);
         }
-        return Double.toString(result);
+        return Double.toString(Math.round(result));
     }
 
     public String getAllEyeAreaAvg(){
@@ -116,11 +119,13 @@ public class PersonalInfo {
         else{
             result = (R + L);
         }
-        result = areaToCm(result, eyeAreaAvg_30);
-        eyeDistance.add(result);
-        result = getDistance(eyeDistance);
-        eyeDistanceCm.add(result);
-        return result;
+        if(result != 0) {
+            result = areaToCm(result, eyeAreaAvg_30);
+            eyeDistance.add(result);
+            result = getDistance(eyeDistance);
+            eyeDistanceCm.add(result);
+        }
+        return Math.round(result);
     }
 
     public int getBlinkNumber(){

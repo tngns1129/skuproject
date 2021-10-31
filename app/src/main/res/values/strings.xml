@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">My Application</string>
     <string-array name="blinkfragmentfirstspinner">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+    </string-array>
+    <string-array name="blinkfragmentsecondspinner">
         <item>소리</item>
         <item>진동</item>
     </string-array>
