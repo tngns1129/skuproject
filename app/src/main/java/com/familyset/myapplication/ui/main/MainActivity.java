@@ -16,6 +16,9 @@ import android.widget.TextView;
 
 import com.familyset.myapplication.R;
 import com.familyset.myapplication.databinding.ActivityMainBinding;
+import com.familyset.myapplication.ui.main.record.BlinkRecordFragment;
+import com.familyset.myapplication.ui.main.record.PoseRecordFragment;
+import com.familyset.myapplication.ui.main.record.RecordFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupView(){
+        binding.viewpager.setUserInputEnabled(false);
         binding.viewpager.setAdapter(
                 new MainAdapter(this)
         );
