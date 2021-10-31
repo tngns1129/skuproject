@@ -19,10 +19,10 @@ public class RecordAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if(position==0){
-            return BlinkFragment.newInstance();
+            return new BlinkRecordFragment();
         }
         else{
-            return RecordFragment.newInstance();
+            return new PoseRecordFragment();
         }
     }
 

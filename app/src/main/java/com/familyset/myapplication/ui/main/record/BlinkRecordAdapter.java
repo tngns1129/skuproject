@@ -1,5 +1,6 @@
 package com.familyset.myapplication.ui.main.record;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -11,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.familyset.myapplication.databinding.LayoutBlinkRecordBinding;
 import com.familyset.myapplication.model.blink.PersonalInfo;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class BlinkRecordAdapter extends ListAdapter<PersonalInfo, BlinkRecordAdapter.ViewHolder> {
 
@@ -40,6 +44,7 @@ public class BlinkRecordAdapter extends ListAdapter<PersonalInfo, BlinkRecordAda
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         LayoutBlinkRecordBinding binding;
+        SimpleDateFormat mFormat = new SimpleDateFormat("yy/MM/dd hh:mm");
 
         public ViewHolder(LayoutBlinkRecordBinding binding) {
             super(binding.getRoot());
@@ -47,11 +52,11 @@ public class BlinkRecordAdapter extends ListAdapter<PersonalInfo, BlinkRecordAda
         }
 
         public void bind(PersonalInfo personalInfo) {
-            binding.index.setText(getAdapterPosition());
-            binding.startTime.setText("2011111111");
-            binding.finishTime.setText("2012312111");
-            binding.distanceAvg.setText("30");
-            binding.blink.setText(personalInfo.getBlinkNumber());
+            binding.index.setText(String.valueOf(getAdapterPosition() + 1));
+            binding.startTime.setText(mFormat.format(personalInfo.getStartTime()));
+            binding.finishTime.setText(personalInfo.executeTime());
+            binding.distanceAvg.setText(String.format("%.2f",personalInfo.getEyeDistanceAvg()));
+            binding.blink.setText(String.valueOf(personalInfo.getBlinkNumber()));
         }
     }
 }
@@ -60,11 +65,13 @@ class PersonalInfoDiffCallback extends DiffUtil.ItemCallback<PersonalInfo> {
 
     @Override
     public boolean areItemsTheSame(@NonNull PersonalInfo oldItem, @NonNull PersonalInfo newItem) {
-        return false;
+        Log.d("CHECK", String.valueOf(oldItem.getStartTime().getTime() == newItem.getStartTime().getTime()));
+        return oldItem.getStartTime().getTime() == newItem.getStartTime().getTime();
     }
 
     @Override
     public boolean areContentsTheSame(@NonNull PersonalInfo oldItem, @NonNull PersonalInfo newItem) {
-        return false;
+        Log.d("CHECK", String.valueOf(oldItem.getFinishTime().getTime() == newItem.getFinishTime().getTime()));
+        return oldItem.getFinishTime().getTime() == newItem.getFinishTime().getTime();
     }
 }

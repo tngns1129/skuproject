@@ -85,8 +85,6 @@ public class BlinkFragmentViewModel extends ViewModel {
 
     private int count = 0;
 
-    public Boolean isRunning = false;
-
     private MutableLiveData<Boolean> _running = new MutableLiveData<>();
     public LiveData<Boolean> running = _running;
 
@@ -119,12 +117,6 @@ public class BlinkFragmentViewModel extends ViewModel {
         this.usersRepository = usersRepository;
         this.personalInfoRepository = personalInfoRepository;
     }
-
-    //public BlinkFragmentViewModel(Context context){
-        //this.view = view;
-        //this.fragmentActivity = fragmentActivity;
-        //initView();
-    //}
 
     public String getAllPersonalInfo() {
         return personalInfo.getAll();
@@ -164,7 +156,7 @@ public class BlinkFragmentViewModel extends ViewModel {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         personalInfo.finishObserve(mDate);
-
+        personalInfo.setEyeDistanceAvg(Double.parseDouble(personalInfo.getAllEyeDistanceAvg()));
         if (user == null) {
             user = usersRepository.getUser();
         }

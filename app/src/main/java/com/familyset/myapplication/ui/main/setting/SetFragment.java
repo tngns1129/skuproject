@@ -15,10 +15,7 @@ public class SetFragment extends Fragment {
 
     private FragmentSetBinding binding;
 
-    public static SetFragment newInstance() {
-        SetFragment sf = new SetFragment();
-        return sf;
-    }
+    public SetFragment() {}
 
     @Nullable
     @Override

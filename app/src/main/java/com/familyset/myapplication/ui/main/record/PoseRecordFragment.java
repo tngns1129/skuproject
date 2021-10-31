@@ -12,14 +12,14 @@ import androidx.fragment.app.Fragment;
 import com.familyset.myapplication.databinding.FragmentPoseRecordBinding;
 import com.familyset.myapplication.ui.main.blink.BlinkFragment;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class PoseRecordFragment extends Fragment {
 
     private FragmentPoseRecordBinding binding;
 
-    public static PoseRecordFragment newInstance() {
-        PoseRecordFragment bp = new PoseRecordFragment();
-        return bp;
-    }
+    public PoseRecordFragment() {}
 
     @Nullable
     @Override

@@ -25,14 +25,7 @@ public class BlinkRecordFragment extends Fragment {
 
     private BlinkRecordAdapter adapter;
 
-    public static BlinkRecordFragment newInstance() {
-        BlinkRecordFragment bp = new BlinkRecordFragment();
-        return bp;
-    }
-
-    private BlinkRecordFragment() {
-        viewModel = new ViewModelProvider(this).get(BlinkRecordViewModel.class);
-    }
+    public BlinkRecordFragment() {}
 
     @Nullable
     @Override
@@ -42,10 +35,20 @@ public class BlinkRecordFragment extends Fragment {
         adapter = new BlinkRecordAdapter();
         binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
+        viewModel = new ViewModelProvider(this).get(BlinkRecordViewModel.class);
+        observe();
         return binding.getRoot();
     }
 
-    private void observe() {
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewModel.loadPersonalInfos();
+    }
 
+    private void observe() {
+        viewModel.items.observe(getViewLifecycleOwner(), items -> {
+            adapter.submitList(items);
+        });
     }
 }

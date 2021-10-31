@@ -17,6 +17,8 @@ import com.familyset.myapplication.databinding.FragmentRecordBinding;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import javax.inject.Inject;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -26,42 +28,29 @@ public class RecordFragment extends Fragment {
 
     private RecordFragmentViewModel viewModel;
 
-    public static RecordFragment newInstance() {
-        RecordFragment rf = new RecordFragment();
-        return rf;
-    }
-
-    private RecordFragment() {
-        viewModel = new ViewModelProvider(this).get(RecordFragmentViewModel.class);
-    }
+    public RecordFragment() {}
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentRecordBinding.inflate(getLayoutInflater());
+        viewModel = new ViewModelProvider(this).get(RecordFragmentViewModel.class);
 
-        //setupView();
+        setupView();
 
         return binding.getRoot();
     }
 
     private void setupView(){
-        /*
-        binding.recordviewpager.setAdapter(
-                new RecordAdapter(this)
-        );
-
-        ViewPager2 viewpager = binding.recordviewpager;
-        viewpager.setAdapter(new RecordAdapter(this));
-        TabLayout tabLayout = binding.recordtablayout;
+        binding.viewpager.setAdapter(new RecordAdapter(this));
         String[] tabNames = getResources().getStringArray(R.array.setting_tab_name);
-        new TabLayoutMediator(tabLayout, binding.recordviewpager, (tab, position) -> {
+        new TabLayoutMediator(binding.tablayout, binding.viewpager, (tab, position) -> {
             TextView textView = new TextView(getActivity());
             textView.setText(tabNames[position]);
             textView.setGravity(Gravity.CENTER);
             tab.setCustomView(textView);
         }).attach();
-
+        /*
         tabLayout.getChildAt(1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
