@@ -79,9 +79,13 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+
         wrongPose.setFinishTime();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("통계").setMessage(wrongPose.getAll()).create().show();
+
+        Intent intent = new Intent();
+        intent.putExtra("pose", wrongPose.getAll());
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
 

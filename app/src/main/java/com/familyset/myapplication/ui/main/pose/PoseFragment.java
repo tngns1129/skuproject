@@ -3,6 +3,7 @@ package com.familyset.myapplication.ui.main.pose;
 import static android.app.Activity.RESULT_OK;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
@@ -30,7 +31,6 @@ import com.familyset.myapplication.databinding.FragmentPoseBinding;
 import java.util.Objects;
 
 
-
 public class PoseFragment extends Fragment {
 
     private FragmentPoseBinding binding;
@@ -40,6 +40,19 @@ public class PoseFragment extends Fragment {
         return pf;
     }
 
+    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent intent = result.getData();
+                        // Handle the Intent
+                        String a = intent.getStringExtra("pose");
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                        builder.setTitle("통계").setMessage(a).create().show();
+                    }
+                }
+            });
 
     @Nullable
     @Override
@@ -49,7 +62,7 @@ public class PoseFragment extends Fragment {
 
         binding.button.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), com.ricardotejo.openpose.MocapActivity.class);
-            startActivity(intent);
+            mStartForResult.launch(intent);
         });
         return binding.getRoot();
     }

@@ -1,5 +1,7 @@
 package com.ricardotejo.openpose;
 
+import android.util.Log;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,11 +20,14 @@ public class WrongPose {
     private int hipLy = 0;
     private int nosex = 0;
     private int nosey = 0;
+    int i = 6;
+    int j = 6;
     private String startTime;
     private String finishTime;
     long mNow;
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+    SimpleDateFormat mFormatTime = new SimpleDateFormat("hhmmss");
     private ArrayList<String> wrongNeckTimes = new ArrayList();
     private ArrayList<String> wrongWaistTimes = new ArrayList();
 
@@ -31,16 +36,24 @@ public class WrongPose {
     }
 
     public int getBornWrong(int index){
-        int i;
-        i = 6;
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
 
         if(index == 12) {
             if(earRx == 0 && earLx == 0){
                 if(Math.abs(nosex - neckx) > 20) {
+                    if(i == 6){
+                        wrongNeckTimes.add(mFormatTime.format(mDate));
+                        Log.d("worgpose_neck", "start");
+                    }
                     i = 0; //잘못된 자세
-                    wrongNeckTimes.add(mFormat.format(mDate));
+
+                }else{
+                    if(i == 0){
+                        wrongNeckTimes.add(mFormatTime.format(mDate));
+                        Log.d("worgpose_neck", "finish");
+                    }
+                    i = 6;
                 }
             }
             else if(earRx==0 || earLx==0){
@@ -49,20 +62,39 @@ public class WrongPose {
                 else
                     earLx = earRx;
                 if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
+                    if(i == 6){
+                        Log.d("worgpose_neck", "start");
+                        wrongNeckTimes.add(mFormatTime.format(mDate));
+                    }
                     i = 0; //잘못된 자세
-                    wrongNeckTimes.add(mFormat.format(mDate));
+
+                } else {
+                    if(i == 0){
+                        Log.d("worgpose_neck", "finish");
+                        wrongNeckTimes.add(mFormatTime.format(mDate));
+                    }
+                    i = 6;
                 }
             }
             else{
                 if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
+                    if(i == 6){
+                        Log.d("worgpose_neck", "start");
+                        wrongNeckTimes.add(mFormatTime.format(mDate));
+                    }
                     i = 0; //잘못된 자세
-                    wrongNeckTimes.add(mFormat.format(mDate));
+
+                } else {
+                    if(i == 0){
+                        Log.d("worgpose_neck", "finish");
+                        wrongNeckTimes.add(mFormatTime.format(mDate));
+                    }
+                    i = 6;
                 }
             }
-
+            return i;
         }
-
-        if(index == 6 || index==9) {
+        else if(index == 6 || index==9) {
             if(hipRx==0 || hipLx==0){
                 if(hipRx < hipLx)
                     hipRx = hipLx;
@@ -70,11 +102,19 @@ public class WrongPose {
                     hipLx = hipRx;
             }
             if(Math.abs((hipRx + hipLx)/2 - neckx) > 20){
-                i = 0; //잘못된 자세
-                wrongWaistTimes.add(mFormat.format(mDate));
+                if(j == 6){
+                    wrongWaistTimes.add(mFormatTime.format(mDate));
+                }
+                j = 0; //잘못된 자세
+            } else{
+                if(j==0){
+                    wrongWaistTimes.add(mFormatTime.format(mDate));
+                }
+                j = 6;
             }
+            return j;
         }
-        return i;
+        else return 6;
     }
 
     public void setBorn(int index, int x, int y) {
@@ -127,6 +167,14 @@ public class WrongPose {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         finishTime = mFormat.format(mDate);
+    }
+    public void wrongTime(ArrayList<String> timeStamp){
+        //Date d1 =
+        for(int i = 0; i < timeStamp.size(); i++){
+            if(i % 2 == 0){
+
+            }
+        }
     }
     public String getAll(){
         return "시작시간 : " + startTime + "\n끝난시간 : " + finishTime + "\ndd : " + wrongNeckTimes.size();
