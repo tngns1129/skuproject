@@ -1,16 +1,16 @@
 package com.familyset.myapplication.model.login;
 
 public class LoggedInUser {
-    private final String userId;
+    private final String id;
     private String displayName;
 
-    public LoggedInUser(String userId, String displayName) {
-        this.userId = userId;
+    public LoggedInUser(String id, String displayName) {
+        this.id = id;
         this.displayName = displayName;
     }
 
     public String getUserId() {
-        return userId;
+        return id;
     }
 
     public String getDisplayName() {
