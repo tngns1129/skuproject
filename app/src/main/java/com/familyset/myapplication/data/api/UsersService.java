@@ -22,8 +22,8 @@ public interface UsersService {
     Call<APIResponse<LoggedInUser>> login(@Body Login login);
 
     @GET("/api/personalInfo/{id}")
-    Call<APIResponse<List<PersonalInfo>>> getPersonalInfos(@Query("id") String userId);
+    Call<APIResponse<List<PersonalInfo>>> getPersonalInfos(@Path("id") String userId);
 
     @POST("/api/personalInfo/{id}")
-    Call<APIResponse<PersonalInfo>> savePersonalInfo(@Query("id") String userId, @Body PersonalInfo personalInfo);
+    Call<APIResponse<PersonalInfo>> savePersonalInfo(@Path("id") String userId, @Body PersonalInfo personalInfo);
 }

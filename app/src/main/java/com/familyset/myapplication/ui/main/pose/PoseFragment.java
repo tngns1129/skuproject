@@ -35,10 +35,7 @@ public class PoseFragment extends Fragment {
 
     private FragmentPoseBinding binding;
 
-    public static PoseFragment newInstance() {
-        PoseFragment pf = new PoseFragment();
-        return pf;
-    }
+    public PoseFragment() {}
 
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
