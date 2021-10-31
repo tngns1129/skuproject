@@ -4,13 +4,14 @@ import android.util.Log;
 
 import org.opencv.core.Rect;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class PersonalInfo {
     private transient double eyeAreaAvg_30 = 0;
     private transient double firstEyeArea;
-    private transient double allEyeArea;
+    private double eyeDistanceAvg = 0;
     private transient String firstSetting;
     private transient String secondSetting;
     private Date startTime;
@@ -239,4 +240,46 @@ public class PersonalInfo {
         return eyeAreaAvg_30;
     }
 
+    public Date getFinishTime() {
+        return finishTime;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setEyeDistanceAvg(Double eyeDistanceAvg) {
+        this.eyeDistanceAvg = eyeDistanceAvg;
+    }
+
+    public Double getEyeDistanceAvg() {
+        return eyeDistanceAvg;
+    }
+
+    public String executeTime() {
+        return difference(startTime, finishTime);
+    }
+
+    private String difference(Date startDate, Date endDate) {
+        //milliseconds
+        long different = endDate.getTime() - startDate.getTime();
+
+        long secondsInMilli = 1000;
+        long minutesInMilli = secondsInMilli * 60;
+        long hoursInMilli = minutesInMilli * 60;
+        long daysInMilli = hoursInMilli * 24;
+
+        long elapsedDays = different / daysInMilli;
+        different = different % daysInMilli;
+
+        long elapsedHours = different / hoursInMilli;
+        different = different % hoursInMilli;
+
+        long elapsedMinutes = different / minutesInMilli;
+        different = different % minutesInMilli;
+
+        long elapsedSeconds = different / secondsInMilli;
+
+        return String.format("%02d:%02d:%02d", elapsedHours, elapsedMinutes, elapsedSeconds);
+    }
 }

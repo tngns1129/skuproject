@@ -19,16 +19,16 @@ public class MainAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if(position==0){
-            return BlinkFragment.newInstance();
+            return new BlinkFragment();
         }
         else if(position==1){
-            return PoseFragment.newInstance();
+            return new PoseFragment();
         }
         else if(position==2){
-            return RecordFragment.newInstance();
+            return new RecordFragment();
         }
         else
-            return SetFragment.newInstance();
+            return new SetFragment();
     }
 
     @Override

@@ -46,13 +46,7 @@ public class BlinkFragment extends Fragment{
 
     private FragmentBlinkBinding binding;
 
-    public static BlinkFragment newInstance() {
-        BlinkFragment bp = new BlinkFragment();
-        //Bundle bundle = new Bundle();
-        //bundle.putInt("number", number);
-        //bp.setArguments(bundle);
-        return bp;
-    }
+    public BlinkFragment() {}
 
     @Nullable
     @Override
