@@ -2,6 +2,7 @@ package com.ricardotejo.openpose;
 
 import android.util.Log;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,14 +45,12 @@ public class WrongPose {
                 if(Math.abs(nosex - neckx) > 20) {
                     if(i == 6){
                         wrongNeckTimes.add(mFormatTime.format(mDate));
-                        Log.d("worgpose_neck", "start");
                     }
                     i = 0; //잘못된 자세
 
                 }else{
                     if(i == 0){
                         wrongNeckTimes.add(mFormatTime.format(mDate));
-                        Log.d("worgpose_neck", "finish");
                     }
                     i = 6;
                 }
@@ -63,14 +62,12 @@ public class WrongPose {
                     earLx = earRx;
                 if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
                     if(i == 6){
-                        Log.d("worgpose_neck", "start");
                         wrongNeckTimes.add(mFormatTime.format(mDate));
                     }
                     i = 0; //잘못된 자세
 
                 } else {
                     if(i == 0){
-                        Log.d("worgpose_neck", "finish");
                         wrongNeckTimes.add(mFormatTime.format(mDate));
                     }
                     i = 6;
@@ -79,14 +76,12 @@ public class WrongPose {
             else{
                 if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
                     if(i == 6){
-                        Log.d("worgpose_neck", "start");
                         wrongNeckTimes.add(mFormatTime.format(mDate));
                     }
                     i = 0; //잘못된 자세
 
                 } else {
                     if(i == 0){
-                        Log.d("worgpose_neck", "finish");
                         wrongNeckTimes.add(mFormatTime.format(mDate));
                     }
                     i = 6;
@@ -168,16 +163,32 @@ public class WrongPose {
         mDate = new Date(mNow);
         finishTime = mFormat.format(mDate);
     }
-    public void wrongTime(ArrayList<String> timeStamp){
-        //Date d1 =
+    public long wrongTime(ArrayList<String> timeStamp) throws ParseException {
+        long startSum = 0;
+        long finishSum = 0;
+        Date f1;
+        Date f2;
+
         for(int i = 0; i < timeStamp.size(); i++){
             if(i % 2 == 0){
-
+                f1 = new SimpleDateFormat("hhmmss").parse(timeStamp.get(i));
+                startSum = startSum + f1.getTime();
+            } else{
+                f2 = new SimpleDateFormat("hhmmss").parse(timeStamp.get(i));
+                finishSum = finishSum + f2.getTime();
+            }
+            if(timeStamp.size()%2 == 1){
+                mNow = System.currentTimeMillis();
+                mDate = new Date(mNow);
+                String finish = mFormatTime.format(mDate);
+                f2 = new SimpleDateFormat("hhmmss").parse(finish);
+                finishSum = finishSum + f2.getTime();
             }
         }
+        return finishSum - startSum;
     }
-    public String getAll(){
-        return "시작시간 : " + startTime + "\n끝난시간 : " + finishTime + "\ndd : " + wrongNeckTimes.size();
+    public String getAll() throws ParseException {
+        return "시작시간 : " + startTime + "\n끝난시간 : " + finishTime + "\n목 : " + wrongTime(wrongNeckTimes)/1000 + "\n허리 : " + wrongTime(wrongWaistTimes)/1000;
     }
 
 

@@ -335,8 +335,8 @@ public abstract class CameraActivity extends Activity
                         || isHardwareLevelSupported(characteristics,
                         CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL);
                 LOGGER.i("Camera API lv2?: %s", useCamera2API);
-                //전면 카메라
-                cameraId = manager.getCameraIdList()[1];
+                //전면 카메라 1 후면카메라 0
+                cameraId = manager.getCameraIdList()[0];
                 return cameraId;
             }
         } catch (CameraAccessException e) {
