@@ -8,23 +8,44 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.familyset.myapplication.databinding.FragmentBlinkRecordBinding;
-import com.familyset.myapplication.ui.main.blink.BlinkFragment;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class BlinkRecordFragment extends Fragment {
 
     private FragmentBlinkRecordBinding binding;
+
+    private BlinkRecordViewModel viewModel;
+
+    private BlinkRecordAdapter adapter;
 
     public static BlinkRecordFragment newInstance() {
         BlinkRecordFragment bp = new BlinkRecordFragment();
         return bp;
     }
 
+    private BlinkRecordFragment() {
+        viewModel = new ViewModelProvider(this).get(BlinkRecordViewModel.class);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentBlinkRecordBinding.inflate(getLayoutInflater());
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        adapter = new BlinkRecordAdapter();
+        binding.recyclerView.setAdapter(adapter);
+        binding.recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         return binding.getRoot();
+    }
+
+    private void observe() {
+
     }
 }

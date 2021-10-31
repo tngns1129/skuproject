@@ -71,12 +71,14 @@ public class BlinkFragment extends Fragment{
         binding.onoff.setOnClickListener(v -> {
             if (viewModel.isRunning()) {
                 viewModel.stop();
+                hideBlinkUI();
             } else {
                 viewModel.start(
                         getContext(),
                         binding.firstspiner.getSelectedItem().toString(),
                         binding.secondspiner.getSelectedItem().toString()
                 );
+                showBlinkUI();
             }
 
         });
@@ -135,13 +137,13 @@ public class BlinkFragment extends Fragment{
 
         viewModel.templeset.observe(getViewLifecycleOwner(), templeset -> binding.templeset.setText(templeset));
 
-        viewModel.running.observe(getViewLifecycleOwner(), running -> {
-            if (running) {
-                showBlinkUI();
-            } else {
-                hideBlinkUI();
-            }
-        });
+        //viewModel.running.observe(getViewLifecycleOwner(), running -> {
+        //    if (running) {
+        //        showBlinkUI();
+        //    } else {
+        //        hideBlinkUI();
+        //    }
+        //});
     }
 
     private void showBlinkUI() {
