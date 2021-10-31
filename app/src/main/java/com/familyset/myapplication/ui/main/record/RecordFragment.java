@@ -41,32 +41,13 @@ public class RecordFragment extends Fragment {
     }
 
     private void setupView(){
-        binding.recordviewpager.setAdapter(
-                new RecordAdapter(this)
-        );
-
-        ViewPager2 viewpager = binding.recordviewpager;
-        viewpager.setAdapter(new RecordAdapter(this));
-        TabLayout tabLayout = binding.recordtablayout;
+        binding.viewpager.setAdapter(new RecordAdapter(this));
         String[] tabNames = getResources().getStringArray(R.array.setting_tab_name);
-        new TabLayoutMediator(tabLayout, binding.recordviewpager, (tab, position) -> {
+        new TabLayoutMediator(binding.tablayout, binding.viewpager, (tab, position) -> {
             TextView textView = new TextView(getActivity());
             textView.setText(tabNames[position]);
             textView.setGravity(Gravity.CENTER);
             tab.setCustomView(textView);
         }).attach();
-        /*
-        tabLayout.getChildAt(1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewpager.setCurrentItem(1);
-            }
-        });
-         */
-
     }
-
-
-
-
 }

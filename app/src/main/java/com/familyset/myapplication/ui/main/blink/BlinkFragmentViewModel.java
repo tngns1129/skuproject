@@ -85,8 +85,7 @@ public class BlinkFragmentViewModel extends ViewModel {
 
     private int count = 0;
 
-    private MutableLiveData<Boolean> _running = new MutableLiveData<>();
-    public LiveData<Boolean> running = _running;
+    private boolean running = false;
 
     private MutableLiveData<String> _distance = new MutableLiveData<>();
     public LiveData<String> distance = _distance;
@@ -128,9 +127,12 @@ public class BlinkFragmentViewModel extends ViewModel {
         return personalInfo.getAll();
     }
 
-    public void start(Context context, String fSet, String sSet) {
-        personalInfo = initPersonalInfo(fSet, sSet);
-        initOpenCV(context);
+    public void start(String fSet, String sSet) {
+        if (personalInfo == null) {
+            personalInfo = initPersonalInfo(fSet, sSet);
+        }
+        personalInfo.setBlinkNumber(0);
+        running = true;
     }
 
     public void initOpenCV(Context context) {
@@ -146,45 +148,41 @@ public class BlinkFragmentViewModel extends ViewModel {
 
     public void stop() {
         savePersonalInfo();
+        running = false;
     }
 
     public boolean isRunning() {
-        if (_running.getValue() == null) {
-            return false;
-        } else {
-            return _running.getValue();
-        }
+        return running;
     }
 
     private void savePersonalInfo() {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         personalInfo.finishObserve(mDate);
-
+        try {
         if (user == null) {
             user = usersRepository.getUser();
         }
-        personalInfoRepository.savePersonalInfo(user.getUserId(), personalInfo)
-                .subscribeOn(Schedulers.io())
-                .subscribe(
-                        // on success
-                        personalInfo ->{
-                            Log.d("BlinkViewModel", personalInfo.toString());
-                            _running.postValue(false);
-                        },
-                        // on error
-                        error -> {
-                            Log.d("BlinkViewModel", error.getMessage());
-                            _running.postValue(false);
-                        }
-                );
+
+            personalInfoRepository.savePersonalInfo(user.getUserId(), personalInfo)
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(
+                            // on success
+                            personalInfo -> {
+                                Log.d("BlinkViewModel", personalInfo.toString());
+                            },
+                            // on error
+                            error -> {
+                                Log.d("BlinkViewModel", error.getMessage());
+                            }
+                    );
+        }catch (Exception e){}
     }
 
     private PersonalInfo initPersonalInfo(String fSet, String sSet) {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
         PersonalInfo personalInfo = new PersonalInfo(mDate,fSet,sSet);
-        personalInfo.setBlinkNumber(0);
         return personalInfo;
     }
 
@@ -245,10 +243,6 @@ public class BlinkFragmentViewModel extends ViewModel {
                                     } else {
                                         Log.i(TAG, "Loaded cascade classifier from " + mCascadeFileEye.getAbsolutePath());
                                     }
-                                }
-
-                                if (mCascadeFile != null && mCascadeFileEye != null) {
-                                    _running.setValue(true);
                                 }
                             } catch (FileNotFoundException e) {
                                 e.printStackTrace();

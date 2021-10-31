@@ -28,6 +28,7 @@ import com.ricardotejo.openpose.env.BorderedText;
 import com.ricardotejo.openpose.env.ImageUtils;
 import com.ricardotejo.openpose.env.Logger;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
@@ -83,7 +84,11 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
         wrongPose.setFinishTime();
 
         Intent intent = new Intent();
-        intent.putExtra("pose", wrongPose.getAll());
+        try {
+            intent.putExtra("pose", wrongPose.getAll());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         setResult(RESULT_OK, intent);
         finish();
     }
