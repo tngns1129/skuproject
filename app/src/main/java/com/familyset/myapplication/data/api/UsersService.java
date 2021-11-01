@@ -3,6 +3,7 @@ package com.familyset.myapplication.data.api;
 import com.familyset.myapplication.model.blink.PersonalInfo;
 import com.familyset.myapplication.model.login.LoggedInUser;
 import com.familyset.myapplication.model.login.Login;
+import com.familyset.myapplication.model.pose.Pose;
 
 import java.util.List;
 
@@ -26,4 +27,10 @@ public interface UsersService {
 
     @POST("/api/personalInfo/{id}")
     Call<APIResponse<PersonalInfo>> savePersonalInfo(@Path("id") String userId, @Body PersonalInfo personalInfo);
+
+    @GET("/api/pose/{id}")
+    Call<APIResponse<List<Pose>>> getPoses(@Path("id") String userId);
+
+    @POST("/api/pose/{id}")
+    Call<APIResponse<Pose>> savePose(@Path("id") String userId, @Body Pose pose);
 }

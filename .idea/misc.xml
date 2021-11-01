@@ -17,8 +17,10 @@
         <entry key="..\:/Users/rlf03/Documents/skuproject/skuproject/app/src/main/res/layout/fragment_blink.xml" value="0.22" />
         <entry key="..\:/Users/rlf03/Documents/skuproject/skuproject/app/src/main/res/layout/fragment_blink_record.xml" value="0.1" />
         <entry key="..\:/Users/rlf03/Documents/skuproject/skuproject/app/src/main/res/layout/fragment_pose.xml" value="0.2171875" />
+        <entry key="..\:/Users/rlf03/Documents/skuproject/skuproject/app/src/main/res/layout/fragment_pose_record.xml" value="0.2171875" />
         <entry key="..\:/Users/rlf03/Documents/skuproject/skuproject/app/src/main/res/layout/fragment_record.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/rlf03/Documents/skuproject/skuproject/app/src/main/res/layout/layout_blink_record.xml" value="0.33" />
+        <entry key="..\:/Users/rlf03/Documents/skuproject/skuproject/app/src/main/res/layout/layout_pose_record.xml" value="0.33" />
       </map>
     </option>
   </component>

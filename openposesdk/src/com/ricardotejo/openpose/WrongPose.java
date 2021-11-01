@@ -2,6 +2,7 @@ package com.ricardotejo.openpose;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,31 +10,33 @@ import java.util.Date;
 
 public class WrongPose {
 
-    private int neckx = 0;
-    private int necky = 0;
-    private int earRx = 0;
-    private int earRy = 0;
-    private int earLx = 0;
-    private int earLy = 0;
-    private int hipRx = 0;
-    private int hipRy = 0;
-    private int hipLx = 0;
-    private int hipLy = 0;
-    private int nosex = 0;
-    private int nosey = 0;
-    int i = 6;
-    int j = 6;
-    private String startTime;
-    private String finishTime;
-    long mNow;
-    Date mDate;
-    SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
-    SimpleDateFormat mFormatTime = new SimpleDateFormat("hhmmss");
+    private transient int neckx = 0;
+    private transient int necky = 0;
+    private transient int earRx = 0;
+    private transient int earRy = 0;
+    private transient int earLx = 0;
+    private transient int earLy = 0;
+    private transient int hipRx = 0;
+    private transient int hipRy = 0;
+    private transient int hipLx = 0;
+    private transient int hipLy = 0;
+    private transient int nosex = 0;
+    private transient int nosey = 0;
+    transient int i = 6;
+    transient int j = 6;
+    private Date startTime;
+    private Date finishTime;
+    transient long mNow;
+    transient Date mDate;
+    transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+    transient SimpleDateFormat mFormatTime = new SimpleDateFormat("hhmmss");
     private ArrayList<String> wrongNeckTimes = new ArrayList();
     private ArrayList<String> wrongWaistTimes = new ArrayList();
+    private String allWrongNeckTimes = "00:00:00";
+    private String allWrongWaistTimes = "00:00:00";
 
     WrongPose(){
-        setStartTime();
+        setStartTimeNow();
     }
 
     public int getBornWrong(int index){
@@ -153,21 +156,32 @@ public class WrongPose {
         hipLy = 0;
     }
 
-    public void setStartTime() {
+    public void setStartTimeNow() {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
-        startTime = mFormat.format(mDate);
+        startTime = mDate;
     }
-    public void setFinishTime() {
+
+    public void setFinishTimeNow() {
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
-        finishTime = mFormat.format(mDate);
+        finishTime = mDate;
     }
+
+    public void calAllWrongNeckTimes() throws ParseException {
+        allWrongNeckTimes = difference(wrongTime(wrongNeckTimes));
+    }
+
+    public void calAllWrongWaistTimes() throws ParseException {
+        allWrongWaistTimes = difference(wrongTime(wrongWaistTimes));
+    }
+
     public long wrongTime(ArrayList<String> timeStamp) throws ParseException {
         long startSum = 0;
         long finishSum = 0;
         Date f1;
         Date f2;
+
         if(wrongNeckTimes.size()%2 == 1){
             mNow = System.currentTimeMillis();
             mDate = new Date(mNow);
@@ -179,21 +193,97 @@ public class WrongPose {
             wrongWaistTimes.add(mFormatTime.format(mDate));
         }
 
-        for(int i = 0; i < timeStamp.size(); i++){
-            if(i % 2 == 0){
+        for (int i = 0; i < timeStamp.size(); i++) {
+            if (i % 2 == 0) {
                 f1 = new SimpleDateFormat("hhmmss").parse(timeStamp.get(i));
                 startSum = startSum + f1.getTime();
-            } else{
+            } else {
                 f2 = new SimpleDateFormat("hhmmss").parse(timeStamp.get(i));
                 finishSum = finishSum + f2.getTime();
             }
-
         }
+
+
         return finishSum - startSum;
     }
-    public String getAll() throws ParseException {
-        return "시작시간 : " + startTime + "\n끝난시간 : " + finishTime + "\n목 : " + wrongTime(wrongNeckTimes)/1000 + "\n허리 : " + wrongTime(wrongWaistTimes)/1000;
+
+    private String difference(long time) {
+        long _time = time;
+
+        //milliseconds
+        long secondsInMilli = 1000;
+        long minutesInMilli = secondsInMilli * 60;
+        long hoursInMilli = minutesInMilli * 60;
+        long daysInMilli = hoursInMilli * 24;
+
+        long elapsedDays = _time / daysInMilli;
+        _time = _time % daysInMilli;
+
+        long elapsedHours = _time / hoursInMilli;
+        _time = _time % hoursInMilli;
+
+        long elapsedMinutes = _time / minutesInMilli;
+        _time = _time % minutesInMilli;
+
+        long elapsedSeconds = _time / secondsInMilli;
+
+        return String.format("%02d:%02d:%02d", elapsedHours, elapsedMinutes, elapsedSeconds);
     }
 
+    public String getAll() {
+        return "시작시간 : " + mFormat.format(startTime) + "\n끝난시간 : " + mFormat.format(finishTime) + "\n목 : " + getAllWrongNeckTimes() + "\n허리 : " + getAllWrongWaistTimes();
+    }
+
+    public String getAllString() {
+        return mFormat.format(startTime) + "\n" + mFormat.format(finishTime) + "\n" + getAllWrongNeckTimes() + "\n" + getAllWrongWaistTimes();
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(Date finishTime) {
+        this.finishTime = finishTime;
+    }
+
+    public ArrayList<String> getWrongNeckTimes() {
+        return wrongNeckTimes;
+    }
+
+    public void setWrongNeckTimes(ArrayList<String> wrongNeckTimes) {
+        this.wrongNeckTimes = wrongNeckTimes;
+    }
+
+    public ArrayList<String> getWrongWaistTimes() {
+        return wrongWaistTimes;
+    }
+
+    public void setWrongWaistTimes(ArrayList<String> wrongWaistTimes) {
+        this.wrongWaistTimes = wrongWaistTimes;
+    }
+
+    public String getAllWrongNeckTimes() {
+        return allWrongNeckTimes;
+    }
+
+    public void setAllWrongNeckTimes(String allWrongNeckTimes) {
+        this.allWrongNeckTimes = allWrongNeckTimes;
+    }
+
+    public String getAllWrongWaistTimes() {
+        return allWrongWaistTimes;
+    }
+
+    public void setAllWrongWaistTimes(String allWrongWaistTimes) {
+        this.allWrongWaistTimes = allWrongWaistTimes;
+    }
 
 }
