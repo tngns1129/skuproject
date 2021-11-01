@@ -24,16 +24,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.familyset.myapplication.R;
 import com.familyset.myapplication.databinding.FragmentPoseBinding;
+import com.familyset.myapplication.model.pose.Pose;
 
 import java.util.Objects;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class PoseFragment extends Fragment {
 
     private FragmentPoseBinding binding;
+
+    private PoseFragmentViewModel viewModel;
 
     public PoseFragment() {}
 
@@ -45,6 +51,9 @@ public class PoseFragment extends Fragment {
                         Intent intent = result.getData();
                         // Handle the Intent
                         String a = intent.getStringExtra("pose");
+                        String b = intent.getStringExtra("poseObject");
+                        Pose pose = new Pose(b);
+                        viewModel.savePose(pose);
                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                         builder.setTitle("통계").setMessage(a).create().show();
                     }
@@ -55,6 +64,8 @@ public class PoseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentPoseBinding.inflate(getLayoutInflater());
+        viewModel = new ViewModelProvider(this).get(PoseFragmentViewModel.class);
+
         binding.text.setText("Hello Pose Fragment");
 
         binding.button.setOnClickListener(v -> {

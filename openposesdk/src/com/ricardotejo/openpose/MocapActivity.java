@@ -81,11 +81,15 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
     public void onBackPressed() {
         //super.onBackPressed();
 
-        wrongPose.setFinishTime();
-
         Intent intent = new Intent();
         try {
+            // 종료 전 총 시간 계산
+            wrongPose.calAllWrongNeckTimes();
+            wrongPose.calAllWrongWaistTimes();
+            wrongPose.setFinishTimeNow();
+
             intent.putExtra("pose", wrongPose.getAll());
+            intent.putExtra("poseObject", wrongPose.getAllString());
         } catch (ParseException e) {
             e.printStackTrace();
         }
