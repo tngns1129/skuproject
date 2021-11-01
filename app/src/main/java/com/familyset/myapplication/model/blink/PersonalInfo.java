@@ -25,6 +25,7 @@ public class PersonalInfo {
     private transient ArrayList<Double> listRy = new ArrayList();
     private transient ArrayList<Double> listLx = new ArrayList();
     private transient ArrayList<Double> listLy = new ArrayList();
+    private transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
     public PersonalInfo(Date time, String firstSet, String secondSet){
         startTime = time;
@@ -233,7 +234,7 @@ public class PersonalInfo {
         finishTime = time;
     }
     public String getAll(){
-        return "시작시간 : " + startTime + "\n끝난시간 : " + finishTime + "\n거리 평균 : " + getAllEyeDistanceAvg() + "\n깜박임 횟수 : " + getBlinkNumber();
+        return "시작시간 : " + mFormat.format(startTime) + "\n끝난시간 : " + mFormat.format(finishTime) + "\n거리 평균 : " + getAllEyeDistanceAvg() + "\n깜박임 횟수 : " + getBlinkNumber();
     }
 
     public double getEyeAreaAvg_30() {
