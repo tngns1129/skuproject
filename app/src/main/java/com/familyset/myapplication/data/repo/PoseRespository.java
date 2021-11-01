@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.familyset.myapplication.data.api.APIResponse;
 import com.familyset.myapplication.data.api.UsersService;
-import com.familyset.myapplication.model.blink.PersonalInfo;
+import com.familyset.myapplication.model.pose.Pose;
 
 import java.util.List;
 
@@ -14,19 +14,18 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.Response;
 
-public class PersonalInfoRepository {
-
+public class PoseRespository {
     private UsersService usersService;
 
     @Inject
-    public PersonalInfoRepository(UsersService usersService) {
+    public PoseRespository(UsersService usersService) {
         this.usersService = usersService;
     }
 
-    public Observable<List<PersonalInfo>> getPersonalInfos(String userId) {
+    public Observable<List<Pose>> getPoses(String userId) {
         return Observable.create(observableOnSubscribe -> {
             try {
-                Response<APIResponse<List<PersonalInfo>>> response = usersService.getPersonalInfos(userId).execute();
+                Response<APIResponse<List<Pose>>> response = usersService.getPoses(userId).execute();
                 if (response.isSuccessful() && response.body() != null) {
                     observableOnSubscribe.onNext(response.body().getData());
                 } else {
@@ -39,20 +38,17 @@ public class PersonalInfoRepository {
         });
     }
 
-    public Single<PersonalInfo> savePersonalInfo(String userId, PersonalInfo personalInfo) {
+    public Single<Pose> savePose(String userId, Pose pose) {
         return Single.create(singleOnSubscribe -> {
             try {
-                Response<APIResponse<PersonalInfo>> response = usersService.savePersonalInfo(userId, personalInfo).execute();
+                Response<APIResponse<Pose>> response = usersService.savePose(userId, pose).execute();
                 if (response.isSuccessful() && response.body() != null) {
-                    //Log.d("PRepository", response.body().getData().toString());
                     singleOnSubscribe.onSuccess(response.body().getData());
                 } else {
-                    //Log.d("PRepository", response.message());
                     Throwable throwable = new Throwable(response.message());
                     singleOnSubscribe.onError(throwable);
                 }
             } catch (Exception e) {
-                //Log.d("PRepository", e.getMessage());
                 singleOnSubscribe.onError(e);
             }
         });
