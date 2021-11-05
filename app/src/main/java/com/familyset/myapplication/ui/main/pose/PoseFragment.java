@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -66,10 +67,20 @@ public class PoseFragment extends Fragment {
         binding = FragmentPoseBinding.inflate(getLayoutInflater());
         viewModel = new ViewModelProvider(this).get(PoseFragmentViewModel.class);
 
-        binding.text.setText("Hello Pose Fragment");
+        binding.firstset.setText("안좋은 자세 판단 민감도");
+        binding.secondset.setText("두번째 설정");
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.posefragmentfirstspinner, R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.blinkfragmentsecondspinner, R.layout.support_simple_spinner_dropdown_item);
+        binding.firstspiner.setAdapter(adapter1);
+        binding.secondspiner.setAdapter(adapter2);
+
+        binding.secondset.setVisibility(View.GONE);
+        binding.secondspiner.setVisibility(View.GONE);
 
         binding.button.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), com.ricardotejo.openpose.MocapActivity.class);
+            intent.putExtra("firstSet", binding.firstspiner.getSelectedItem().toString());
+            intent.putExtra("firstSetId", Integer.toString(binding.firstspiner.getSelectedItemPosition()));
             mStartForResult.launch(intent);
         });
         return binding.getRoot();

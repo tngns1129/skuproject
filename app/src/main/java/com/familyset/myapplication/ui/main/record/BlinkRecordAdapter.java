@@ -53,6 +53,7 @@ public class BlinkRecordAdapter extends ListAdapter<PersonalInfo, BlinkRecordAda
 
         public void bind(PersonalInfo personalInfo) {
             binding.index.setText(String.valueOf(getAdapterPosition() + 1));
+            Log.d("ggg", personalInfo.getStartTime().toString());
             binding.startTime.setText(mFormat.format(personalInfo.getStartTime()));
             binding.finishTime.setText(personalInfo.executeTime());
             binding.distanceAvg.setText(String.format("%.2f",personalInfo.getEyeDistanceAvg()));
@@ -65,13 +66,11 @@ class PersonalInfoDiffCallback extends DiffUtil.ItemCallback<PersonalInfo> {
 
     @Override
     public boolean areItemsTheSame(@NonNull PersonalInfo oldItem, @NonNull PersonalInfo newItem) {
-        Log.d("CHECK", String.valueOf(oldItem.getStartTime().getTime() == newItem.getStartTime().getTime()));
         return oldItem.getStartTime().getTime() == newItem.getStartTime().getTime();
     }
 
     @Override
     public boolean areContentsTheSame(@NonNull PersonalInfo oldItem, @NonNull PersonalInfo newItem) {
-        Log.d("CHECK", String.valueOf(oldItem.getFinishTime().getTime() == newItem.getFinishTime().getTime()));
         return oldItem.getFinishTime().getTime() == newItem.getFinishTime().getTime();
     }
 }

@@ -46,12 +46,13 @@ public class BlinkFragment extends Fragment{
 
     private FragmentBlinkBinding binding;
 
+    String firstset;
+
     public BlinkFragment() {}
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         binding = FragmentBlinkBinding.inflate(getLayoutInflater());
         viewModel = new ViewModelProvider(this).get(BlinkFragmentViewModel.class);
         initView();
@@ -82,6 +83,12 @@ public class BlinkFragment extends Fragment{
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.blinkfragmentsecondspinner, R.layout.support_simple_spinner_dropdown_item);
         binding.firstspiner.setAdapter(adapter1);
         binding.secondspiner.setAdapter(adapter2);
+
+        binding.secondset.setVisibility(View.GONE);
+        binding.secondspiner.setVisibility(View.GONE);
+
+        firstset = binding.firstspiner.getSelectedItem().toString();
+        firstset = firstset.substring(0,2);
 
         binding.activitySurfaceView.setCvCameraViewListener(new CameraBridgeViewBase.CvCameraViewListener2() {
             @Override
@@ -115,7 +122,7 @@ public class BlinkFragment extends Fragment{
     private void observeLiveData() {
         viewModel.distance.observe(getViewLifecycleOwner(), distance -> {
             binding.distance.setText(distance);
-            if (Double.parseDouble(distance) < Double.parseDouble(binding.firstspiner.getSelectedItem().toString())) {
+            if (Double.parseDouble(distance) < Double.parseDouble(firstset)) {
                 showToast(getActivity(), "Toast Message");
             }
 
@@ -158,13 +165,16 @@ public class BlinkFragment extends Fragment{
         binding.templereset.setVisibility(View.VISIBLE);
         binding.info.setVisibility(View.VISIBLE);
         binding.activitySurfaceView.setVisibility(View.VISIBLE);
+
+        binding.blink.setVisibility(View.GONE);
+        binding.distanceAvg.setVisibility(View.GONE);
     }
 
     private void hideBlinkUI() {
         binding.firstspiner.setVisibility(View.VISIBLE);
-        binding.secondspiner.setVisibility(View.VISIBLE);
+        //binding.secondspiner.setVisibility(View.VISIBLE);
         binding.firstset.setVisibility(View.VISIBLE);
-        binding.secondset.setVisibility(View.VISIBLE);
+        //binding.secondset.setVisibility(View.VISIBLE);
 
         binding.onoff.setText("OFF");
         binding.onoff.setBackgroundColor(Color.GRAY);

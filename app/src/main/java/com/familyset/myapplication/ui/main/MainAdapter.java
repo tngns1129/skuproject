@@ -24,16 +24,14 @@ public class MainAdapter extends FragmentStateAdapter {
         else if(position==1){
             return new PoseFragment();
         }
-        else if(position==2){
+        else{
             return new RecordFragment();
         }
-        else
-            return new SetFragment();
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 3;
     }
 
 }
