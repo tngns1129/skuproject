@@ -323,7 +323,7 @@ public class BlinkFragmentViewModel extends ViewModel {
                 personalInfo.setEyeAreaAvg_30();
                 _distanceAvg.postValue(Double.toString(personalInfo.getEyeAreaAvg_30()));
                 learn_frames++;
-                _templeset.postValue("");
+                _templeset.postValue("학습 완료");
             }
             else {
                 // 템플릿 학습 완료시
@@ -336,6 +336,7 @@ public class BlinkFragmentViewModel extends ViewModel {
                         else beforeBlink = false;
                     }
                 }
+                _templeset.postValue("학습 완료");
                 //return null;
             }
         } else {

@@ -123,7 +123,7 @@ public class BlinkFragment extends Fragment{
         viewModel.distance.observe(getViewLifecycleOwner(), distance -> {
             binding.distance.setText(distance);
             if (Double.parseDouble(distance) < Double.parseDouble(firstset)) {
-                showToast(getActivity(), "Toast Message");
+                showToast(getActivity(), "핸드폰을 멀리하세요!!!");
             }
 
         });
