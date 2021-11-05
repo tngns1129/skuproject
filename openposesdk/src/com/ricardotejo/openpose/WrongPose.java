@@ -28,7 +28,7 @@ public class WrongPose {
     private Date finishTime;
     transient long mNow;
     transient Date mDate;
-    transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+    transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
     transient SimpleDateFormat mFormatTime = new SimpleDateFormat("hhmmss");
     private ArrayList<String> wrongNeckTimes = new ArrayList();
     private ArrayList<String> wrongWaistTimes = new ArrayList();
