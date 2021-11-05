@@ -45,7 +45,7 @@ public class BlinkRecordViewModel extends ViewModel {
                 .subscribe(
                         //on success
                         personalInfos -> {
-                            //Log.d("CHCH", String.valueOf(personalInfos.size()));
+                            //Log.d("CHCH", personalInfos.toString());
 
                             _items.setValue(personalInfos);
                         },

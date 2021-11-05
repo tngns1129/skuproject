@@ -34,18 +34,24 @@ public class WrongPose {
     private ArrayList<String> wrongWaistTimes = new ArrayList();
     private String allWrongNeckTimes = "00:00:00";
     private String allWrongWaistTimes = "00:00:00";
+    private Integer wrongStandard;
 
     WrongPose(){
         setStartTimeNow();
+
+    }
+    public void setWrongStandard(Integer i) {
+        this.wrongStandard = i;
     }
 
-    public int getBornWrong(int index){
+    public int getBornWrong(int index, int wrongStandard){
         mNow = System.currentTimeMillis();
         mDate = new Date(mNow);
+        this.wrongStandard = wrongStandard;
 
         if(index == 12) {
             if(earRx == 0 && earLx == 0){
-                if(Math.abs(nosex - neckx) > 20) {
+                if(Math.abs(nosex - neckx) > wrongStandard) {
                     if(i == 6){
                         wrongNeckTimes.add(mFormatTime.format(mDate));
                     }
@@ -63,7 +69,7 @@ public class WrongPose {
                     earRx = earLx;
                 else
                     earLx = earRx;
-                if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
+                if(Math.abs((earRx + earLx)/2 - neckx) > wrongStandard) {
                     if(i == 6){
                         wrongNeckTimes.add(mFormatTime.format(mDate));
                     }
@@ -77,7 +83,7 @@ public class WrongPose {
                 }
             }
             else{
-                if(Math.abs((earRx + earLx)/2 - neckx) > 20) {
+                if(Math.abs((earRx + earLx)/2 - neckx) > wrongStandard) {
                     if(i == 6){
                         wrongNeckTimes.add(mFormatTime.format(mDate));
                     }
@@ -99,7 +105,7 @@ public class WrongPose {
                 else
                     hipLx = hipRx;
             }
-            if(Math.abs((hipRx + hipLx)/2 - neckx) > 20){
+            if(Math.abs((hipRx + hipLx)/2 - neckx) > wrongStandard){
                 if(j == 6){
                     wrongWaistTimes.add(mFormatTime.format(mDate));
                 }
@@ -231,7 +237,13 @@ public class WrongPose {
     }
 
     public String getAll() {
-        return "시작시간 : " + mFormat.format(startTime) + "\n끝난시간 : " + mFormat.format(finishTime) + "\n목 : " + getAllWrongNeckTimes() + "\n허리 : " + getAllWrongWaistTimes();
+        return "시작시간 : " + getStartTime() + "\n끝난시간 : " + getFinishTime() + "\n목 : " + getAllWrongNeckTimes() + "\n허리 : " + getAllWrongWaistTimes();
+    }
+    public String getNeck(){
+        return getAllWrongNeckTimes();
+    }
+    public String getWaist()throws ParseException{
+        return difference(wrongTime(wrongWaistTimes));
     }
 
     public String getAllString() {

@@ -77,6 +77,7 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
     Bitmap SAMPLE_IMAGE;
     private WrongPose wrongPose = new WrongPose();
 
+
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
@@ -190,16 +191,20 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                         }
                         lines.add("");
 
+                        /*
                         lines.add("Frame: " + previewWidth + "x" + previewHeight);
                         lines.add("Crop: " + copy.getWidth() + "x" + copy.getHeight());
                         lines.add("View: " + canvas.getWidth() + "x" + canvas.getHeight());
                         lines.add("Rotation: " + sensorOrientation);
                         lines.add("Inference time: " + lastProcessingTimeMs + "ms");
+                        */
+                        lines.add("Start : " + wrongPose.getStartTime());
                         lines.add("Humans found: " + lastHumansFound);
-                        lines.add("bad pose start : ");
+                        lines.add("Sensitivity : " + getFirstSet());
+                        lines.add("Sensitivity id : " + getFirstSetId());
 
                         //borderedText.drawLines(canvas, 10, canvas.getHeight() - 10, lines); // bottom
-                        borderedText.drawLinesTop(canvas, copy.getWidth() * scaleFactor + 30, 10, lines); // top-right
+                        borderedText.drawLinesTop(canvas, copy.getWidth() * scaleFactor + 30, 30, lines); // top-right
                     }
                 });
     }
@@ -346,7 +351,7 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                 //img_copied = cv2.line(img_copied, centers[pair[0]], centers[pair[1]], CocoColors[pair_order], 3)
                 Paint paint = new Paint();
                 Log.d("borns " , Integer.toString(pair_order));
-                int i = wrongPose.getBornWrong(pair_order);
+                int i = wrongPose.getBornWrong(pair_order, getFirstsetStandard());
                 paint.setColor(Color.rgb(Common.CocoColors[i][0], Common.CocoColors[i][1], Common.CocoColors[i][2]));
                 paint.setStrokeWidth(HUMAN_RADIUS);
                 paint.setStyle(Style.STROKE);

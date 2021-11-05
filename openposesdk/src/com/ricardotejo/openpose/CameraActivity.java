@@ -35,6 +35,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Trace;
+import android.util.Log;
 import android.util.Size;
 import android.view.KeyEvent;
 import android.view.Surface;
@@ -70,6 +71,9 @@ public abstract class CameraActivity extends Activity
     private Runnable postInferenceCallback;
     private Runnable imageConverter;
 
+    String firstSet;
+    String firstSetId;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         LOGGER.d("onCreate " + this);
@@ -83,11 +87,33 @@ public abstract class CameraActivity extends Activity
         } else {
             requestPermission();
         }
+        firstSet = getIntent().getStringExtra("firstSet");
+        firstSetId = getIntent().getStringExtra("firstSetId");
+    }
+
+    public Integer getFirstsetStandard(){
+        if(firstSetId.equals("0")){
+            return 15;
+        }
+        else if (firstSetId.equals("1")){
+            return 20;
+        }
+        else{
+            return 25;
+        }
     }
 
     protected int[] getRgbBytes() {
         imageConverter.run();
         return rgbBytes;
+    }
+
+    public String getFirstSet() {
+        return firstSet;
+    }
+
+    public Integer getFirstSetId() {
+        return Integer.parseInt(firstSetId);
     }
 
     protected byte[] getLuminance() {

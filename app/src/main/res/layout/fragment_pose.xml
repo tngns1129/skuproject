@@ -7,15 +7,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/firstset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fragment1"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:text="First set"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/firstspiner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </TextView>
+        app:layout_constraintVertical_chainStyle="packed"
+        ></TextView>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/firstspiner"
+        app:layout_constraintTop_toBottomOf="@+id/firstset"
+        app:layout_constraintBottom_toTopOf="@+id/secondset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"></Spinner>
+
+    <TextView
+        android:id="@+id/secondset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First set"
+        app:layout_constraintTop_toBottomOf="@+id/firstspiner"
+        app:layout_constraintBottom_toTopOf="@+id/secondspiner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        ></TextView>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/secondspiner"
+        app:layout_constraintTop_toBottomOf="@+id/secondset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"></Spinner>
 
     <Button
         android:id="@+id/button"
@@ -24,7 +55,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintTop_toBottomOf="@+id/secondspiner"
+        app:layout_constraintVertical_bias="0"
         ></Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
