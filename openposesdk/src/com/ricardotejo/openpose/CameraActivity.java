@@ -73,6 +73,7 @@ public abstract class CameraActivity extends Activity
 
     String firstSet;
     String firstSetId;
+    String secondSetId = "0";
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -81,7 +82,7 @@ public abstract class CameraActivity extends Activity
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.activity_camera);
-
+        secondSetId = getIntent().getStringExtra("secondSetId");
         if (hasPermission()) {
             setFragment();
         } else {
@@ -89,6 +90,7 @@ public abstract class CameraActivity extends Activity
         }
         firstSet = getIntent().getStringExtra("firstSet");
         firstSetId = getIntent().getStringExtra("firstSetId");
+
     }
 
     public Integer getFirstsetStandard(){
@@ -362,7 +364,7 @@ public abstract class CameraActivity extends Activity
                         CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL);
                 LOGGER.i("Camera API lv2?: %s", useCamera2API);
                 //전면 카메라 1 후면카메라 0
-                cameraId = manager.getCameraIdList()[0];
+                cameraId = manager.getCameraIdList()[Integer.parseInt(secondSetId)];
                 return cameraId;
             }
         } catch (CameraAccessException e) {

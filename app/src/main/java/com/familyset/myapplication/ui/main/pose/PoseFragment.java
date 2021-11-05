@@ -67,20 +67,21 @@ public class PoseFragment extends Fragment {
         binding = FragmentPoseBinding.inflate(getLayoutInflater());
         viewModel = new ViewModelProvider(this).get(PoseFragmentViewModel.class);
 
+        binding.button.setText("Start");
+
         binding.firstset.setText("안좋은 자세 판단 민감도");
-        binding.secondset.setText("두번째 설정");
+        binding.secondset.setText("카메라 모드");
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.posefragmentfirstspinner, R.layout.support_simple_spinner_dropdown_item);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.blinkfragmentsecondspinner, R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.posefragmentsecondspinner, R.layout.support_simple_spinner_dropdown_item);
         binding.firstspiner.setAdapter(adapter1);
         binding.secondspiner.setAdapter(adapter2);
 
-        binding.secondset.setVisibility(View.GONE);
-        binding.secondspiner.setVisibility(View.GONE);
 
         binding.button.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), com.ricardotejo.openpose.MocapActivity.class);
             intent.putExtra("firstSet", binding.firstspiner.getSelectedItem().toString());
             intent.putExtra("firstSetId", Integer.toString(binding.firstspiner.getSelectedItemPosition()));
+            intent.putExtra("secondSetId", Integer.toString(binding.secondspiner.getSelectedItemPosition()));
             mStartForResult.launch(intent);
         });
         return binding.getRoot();
