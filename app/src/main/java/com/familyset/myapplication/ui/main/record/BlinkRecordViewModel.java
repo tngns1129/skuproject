@@ -11,6 +11,7 @@ import com.familyset.myapplication.data.repo.PersonalInfoRepository;
 import com.familyset.myapplication.data.repo.UsersRepository;
 import com.familyset.myapplication.model.blink.PersonalInfo;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -46,7 +47,7 @@ public class BlinkRecordViewModel extends ViewModel {
                         //on success
                         personalInfos -> {
                             //Log.d("CHCH", personalInfos.toString());
-
+                            Collections.reverse(personalInfos);
                             _items.setValue(personalInfos);
                         },
                         //on error

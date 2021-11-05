@@ -10,6 +10,7 @@ import com.familyset.myapplication.data.repo.PoseRespository;
 import com.familyset.myapplication.data.repo.UsersRepository;
 import com.familyset.myapplication.model.pose.Pose;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -39,7 +40,8 @@ public class PoseRecordViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         poses -> {
-                            Log.d("PRVM", String.valueOf(poses.size()));
+                            //Log.d("PRVM", String.valueOf(poses.size()));
+                            Collections.reverse(poses);
                             _items.setValue(poses);
                         },
                         error -> {

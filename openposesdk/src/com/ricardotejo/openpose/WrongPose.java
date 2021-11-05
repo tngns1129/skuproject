@@ -28,7 +28,7 @@ public class WrongPose {
     private Date finishTime;
     transient long mNow;
     transient Date mDate;
-    transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+    transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     transient SimpleDateFormat mFormatTime = new SimpleDateFormat("hhmmss");
     private ArrayList<String> wrongNeckTimes = new ArrayList();
     private ArrayList<String> wrongWaistTimes = new ArrayList();
@@ -237,7 +237,7 @@ public class WrongPose {
     }
 
     public String getAll() {
-        return "시작시간 : " + getStartTime() + "\n끝난시간 : " + getFinishTime() + "\n목 : " + getAllWrongNeckTimes() + "\n허리 : " + getAllWrongWaistTimes();
+        return "시작시간 : " + mFormat.format(startTime) + "\n끝난시간 : " + mFormat.format(finishTime) + "\n목 : " + getAllWrongNeckTimes() + "\n허리 : " + getAllWrongWaistTimes();
     }
     public String getNeck(){
         return getAllWrongNeckTimes();

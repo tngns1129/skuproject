@@ -15,6 +15,7 @@ import com.familyset.myapplication.model.blink.PersonalInfo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class BlinkRecordAdapter extends ListAdapter<PersonalInfo, BlinkRecordAdapter.ViewHolder> {
 
@@ -44,10 +45,11 @@ public class BlinkRecordAdapter extends ListAdapter<PersonalInfo, BlinkRecordAda
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         LayoutBlinkRecordBinding binding;
-        SimpleDateFormat mFormat = new SimpleDateFormat("yy/MM/dd hh:mm");
+        SimpleDateFormat mFormat = new SimpleDateFormat("yy/MM/dd HH:mm");
 
         public ViewHolder(LayoutBlinkRecordBinding binding) {
             super(binding.getRoot());
+            mFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
             this.binding = binding;
         }
 

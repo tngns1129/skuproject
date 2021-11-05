@@ -12,6 +12,7 @@ import com.familyset.myapplication.databinding.LayoutPoseRecordBinding;
 import com.familyset.myapplication.model.pose.Pose;
 
 import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 public class PoseRecordAdapter extends ListAdapter<Pose, PoseRecordAdapter.ViewHolder> {
 
@@ -37,10 +38,11 @@ public class PoseRecordAdapter extends ListAdapter<Pose, PoseRecordAdapter.ViewH
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         LayoutPoseRecordBinding binding;
-        SimpleDateFormat mFormat = new SimpleDateFormat("yy/MM/dd hh:mm");
+        SimpleDateFormat mFormat = new SimpleDateFormat("yy/MM/dd HH:mm");
 
         public ViewHolder(LayoutPoseRecordBinding binding) {
             super(binding.getRoot());
+            mFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
             this.binding = binding;
         }
 

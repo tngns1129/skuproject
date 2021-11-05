@@ -25,7 +25,7 @@ public class PersonalInfo {
     private transient ArrayList<Double> listRy = new ArrayList();
     private transient ArrayList<Double> listLx = new ArrayList();
     private transient ArrayList<Double> listLy = new ArrayList();
-    private transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+    private transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
     public PersonalInfo(Date time, String firstSet, String secondSet){
         startTime = time;
