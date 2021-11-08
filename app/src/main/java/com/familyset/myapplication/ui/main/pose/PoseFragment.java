@@ -53,6 +53,7 @@ public class PoseFragment extends Fragment {
                         // Handle the Intent
                         String a = intent.getStringExtra("pose");
                         String b = intent.getStringExtra("poseObject");
+                        Log.d("CHCHCH", b);
                         Pose pose = new Pose(b);
                         viewModel.savePose(pose);
                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());

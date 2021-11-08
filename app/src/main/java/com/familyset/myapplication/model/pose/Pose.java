@@ -13,7 +13,7 @@ public class Pose {
     private transient ArrayList<String> wrongWaistTimes = new ArrayList();
     private String allWrongNeckTimes = "00:00:00";
     private String allWrongWaistTimes = "00:00:00";
-    private transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+    private transient SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
     public Pose() {}
 
