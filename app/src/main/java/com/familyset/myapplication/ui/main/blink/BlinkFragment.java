@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -70,23 +71,22 @@ public class BlinkFragment extends Fragment{
                 viewModel.start(
                         getContext(),
                         binding.firstspiner.getSelectedItem().toString(),
-                        binding.secondspiner.getSelectedItem().toString()
+                        binding.secondspiner.getSelectedItem().toString().substring(0,2)
                 );
             }
-
         });
         binding.templereset.setOnClickListener(v -> viewModel.resetLearnFrames());
 
         binding.firstset.setText("알림 받을 거리");
-        binding.secondset.setText("두번째 설정");
+        binding.secondset.setText("기준거리 설정");
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.blinkfragmentfirstspinner, R.layout.support_simple_spinner_dropdown_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.blinkfragmentsecondspinner, R.layout.support_simple_spinner_dropdown_item);
         binding.firstspiner.setAdapter(adapter1);
         binding.secondspiner.setAdapter(adapter2);
-
+/*
         binding.secondset.setVisibility(View.GONE);
         binding.secondspiner.setVisibility(View.GONE);
-
+ */
         firstset = binding.firstspiner.getSelectedItem().toString();
         firstset = firstset.substring(0,2);
 

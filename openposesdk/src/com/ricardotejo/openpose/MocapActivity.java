@@ -18,6 +18,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.Log;
 import android.util.Size;
@@ -28,7 +29,13 @@ import com.ricardotejo.openpose.env.BorderedText;
 import com.ricardotejo.openpose.env.ImageUtils;
 import com.ricardotejo.openpose.env.Logger;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
@@ -77,6 +84,12 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
     Bitmap SAMPLE_IMAGE;
     private WrongPose wrongPose = new WrongPose();
 
+    Bitmap image = null;
+    List<String> imageDir;
+
+    long mNow;
+    Date mDate;
+
 
     @Override
     public void onBackPressed() {
@@ -91,6 +104,8 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
 
             intent.putExtra("pose", wrongPose.getAll());
             intent.putExtra("poseObject", wrongPose.getAllString());
+            intent.putExtra("imageDir", (Parcelable) imageDir);
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -270,6 +285,13 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                         final Canvas canvas = new Canvas(cropCopyBitmap);
                         draw_humans(canvas, results.get(0).humans);
 
+
+                        mNow = System.currentTimeMillis();
+                        mDate = new Date(mNow);
+                        SimpleDateFormat sdf = new SimpleDateFormat("hh_mm_ss");
+                        String filename = sdf.format(mDate);
+                        saveBitmapToJpeg(cropCopyBitmap, filename);
+
 //                        final Paint paint = new Paint();
 //                        paint.setColor(Color.RED);
 //                        paint.setStyle(Style.STROKE);
@@ -378,4 +400,41 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
     public void onSetDebug(final boolean debug) {
         detector.enableStatLogging(debug);
     }
+
+    private void saveBitmapToJpeg(Bitmap bitmap, String name) {
+
+        image = bitmap;
+
+        //내부저장소 캐시 경로를 받아옵니다.
+        File storage = getCacheDir();
+
+        //저장할 파일 이름
+        String fileName = name + ".jpg";
+
+        imageDir.add(getCacheDir().toString() + "/" + fileName);
+
+        //storage 에 파일 인스턴스를 생성합니다.
+        File tempFile = new File(storage, fileName);
+
+        try {
+
+            // 자동으로 빈 파일을 생성합니다.
+            tempFile.createNewFile();
+
+            // 파일을 쓸 수 있는 스트림을 준비합니다.
+            FileOutputStream out = new FileOutputStream(tempFile);
+
+            // compress 함수를 사용해 스트림에 비트맵을 저장합니다.
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+
+            // 스트림 사용후 닫아줍니다.
+            out.close();
+
+        } catch (FileNotFoundException e) {
+            Log.e("MyTag","FileNotFoundException : " + e.getMessage());
+        } catch (IOException e) {
+            Log.e("MyTag","IOException : " + e.getMessage());
+        }
+    }
+
 }

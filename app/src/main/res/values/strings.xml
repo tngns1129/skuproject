@@ -18,8 +18,11 @@
         <item>전면카메라</item>
     </string-array>
     <string-array name="blinkfragmentsecondspinner">
-        <item>소리</item>
-        <item>진동</item>
+        <item>20cm</item>
+        <item>25cm</item>
+        <item>30cm</item>
+        <item>35cm</item>
+        <item>40cm</item>
     </string-array>
     <string-array name="main_tab_name">
         <item>거리, 깜빡임</item>

@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -31,6 +35,7 @@ import com.familyset.myapplication.R;
 import com.familyset.myapplication.databinding.FragmentPoseBinding;
 import com.familyset.myapplication.model.pose.Pose;
 
+import java.util.List;
 import java.util.Objects;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -53,11 +58,24 @@ public class PoseFragment extends Fragment {
                         // Handle the Intent
                         String a = intent.getStringExtra("pose");
                         String b = intent.getStringExtra("poseObject");
+                        List<String> c = intent.getParcelableExtra("imageDir");
                         Log.d("CHCHCH", b);
                         Pose pose = new Pose(b);
                         viewModel.savePose(pose);
                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                        builder.setTitle("통계").setMessage(a).create().show();
+                        builder.setTitle("통계").setMessage(a).create();
+
+                        LayoutInflater factory = LayoutInflater.from(requireContext());
+                        View view = factory.inflate(R.layout.image, null);
+                        ImageView imageView = view.findViewById(R.id.dialog_imageview);
+
+                        for(String str : c){
+                            Bitmap bm = BitmapFactory.decodeFile(str);
+                            imageView.setImageBitmap(bm);
+                            builder.setView(view);
+                        }
+
+                        builder.show();
                     }
                 }
             });

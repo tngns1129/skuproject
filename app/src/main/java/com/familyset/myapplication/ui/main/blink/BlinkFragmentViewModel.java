@@ -8,6 +8,7 @@ import static org.opencv.imgproc.Imgproc.TM_SQDIFF;
 import static org.opencv.imgproc.Imgproc.TM_SQDIFF_NORMED;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
@@ -82,6 +83,7 @@ public class BlinkFragmentViewModel extends ViewModel {
     private SimpleDateFormat mFormat = new SimpleDateFormat("yyyyMMddhhmmss");
     private BaseLoaderCallback mLoaderCallback;
     private Boolean beforeBlink = false;
+    private Bitmap bitmap;
 
     private int count = 0;
 
@@ -472,4 +474,5 @@ public class BlinkFragmentViewModel extends ViewModel {
         }
         return template;
     }
+
 }

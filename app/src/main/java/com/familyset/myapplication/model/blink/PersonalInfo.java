@@ -142,7 +142,7 @@ public class PersonalInfo {
         double i;
         i = now - cm_30;
         i = i/2500;
-        result = 30 - i;
+        result = Integer.parseInt(secondSetting) - i;
         return result;
     }
 
