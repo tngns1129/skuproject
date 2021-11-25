@@ -42,7 +42,10 @@ import android.view.Surface;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import java.io.File;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.ricardotejo.openpose.env.ImageUtils;
 import com.ricardotejo.openpose.env.Logger;
@@ -74,6 +77,8 @@ public abstract class CameraActivity extends Activity
     String firstSet;
     String firstSetId;
     String secondSetId = "0";
+
+    BitmapToVideoEncoder bitmapToVideoEncoder;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -167,6 +172,7 @@ public abstract class CameraActivity extends Activity
                         isProcessingFrame = false;
                     }
                 };
+
         processImage();
     }
 
@@ -283,6 +289,7 @@ public abstract class CameraActivity extends Activity
     public synchronized void onDestroy() {
         LOGGER.d("onDestroy " + this);
         super.onDestroy();
+        bitmapToVideoEncoder.stopEncoding();
     }
 
     @Override

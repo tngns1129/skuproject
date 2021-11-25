@@ -59,7 +59,6 @@ public class PoseFragment extends Fragment {
                         String a = intent.getStringExtra("pose");
                         String b = intent.getStringExtra("poseObject");
                         List<String> c = intent.getParcelableExtra("imageDir");
-                        Log.d("CHCHCH", b);
                         Pose pose = new Pose(b);
                         viewModel.savePose(pose);
                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -69,10 +68,12 @@ public class PoseFragment extends Fragment {
                         View view = factory.inflate(R.layout.image, null);
                         ImageView imageView = view.findViewById(R.id.dialog_imageview);
 
-                        for(String str : c){
-                            Bitmap bm = BitmapFactory.decodeFile(str);
-                            imageView.setImageBitmap(bm);
-                            builder.setView(view);
+                        if (c != null) {
+                            for(String str : c){
+                                Bitmap bm = BitmapFactory.decodeFile(str);
+                                imageView.setImageBitmap(bm);
+                                builder.setView(view);
+                            }
                         }
 
                         builder.show();
