@@ -33,10 +33,10 @@ public class BitmapToVideoEncoder {
     private static final String MIME_TYPE = "video/avc"; // H.264 Advanced Video Coding
     private static int mWidth;
     private static int mHeight;
-    private static final int BIT_RATE = 4000000;
-    private static final int FRAME_RATE = 15; // Frames per second
+    private static final int BIT_RATE = 135000;
+    private static final int FRAME_RATE = 1; // Frames per second
 
-    private static final int I_FRAME_INTERVAL = 10;
+    private static final int I_FRAME_INTERVAL = 200;
 
     private int mGenerateIndex = 0;
     private int mTrackIndex;
@@ -97,7 +97,6 @@ public class BitmapToVideoEncoder {
         mediaFormat.setInteger(MediaFormat.KEY_BIT_RATE, BIT_RATE);
         mediaFormat.setInteger(MediaFormat.KEY_FRAME_RATE, FRAME_RATE);
         mediaFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420SemiPlanar);
-        mediaFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, colorFormat);
         mediaFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, I_FRAME_INTERVAL);
         mediaCodec.configure(mediaFormat, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
         mediaCodec.start();

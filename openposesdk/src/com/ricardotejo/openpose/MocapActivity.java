@@ -95,6 +95,8 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
 
     long mNow;
     Date mDate;
+    SimpleDateFormat mSimpleDateFormat;
+    String mStringDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,10 +155,12 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
             @Override
             public void onEncodingComplete(File outputFile) {}
         });
-        bitmapToVideoEncoder.startEncoding(previewWidth, previewHeight,
+        mDate = new Date(System.currentTimeMillis());
+        mSimpleDateFormat = new SimpleDateFormat("hh_mm_ss");
+        bitmapToVideoEncoder.startEncoding(cropSize, cropSize,
                 new File(getExternalFilesDir(Environment.DIRECTORY_DCIM),
-                        "position_" + new SimpleDateFormat("hh_mm_ss")
-                        .format(new Date(System.currentTimeMillis())) + ".mp4"));
+                        "position_" + mSimpleDateFormat.format(mDate) + ".mp4"));
+        mSimpleDateFormat.applyPattern("yyyy/MM/dd_hh:mm:ss");
 
         sensorOrientation = rotation - getScreenOrientation();
         LOGGER.i("Camera orientation relative to screen canvas: %d", sensorOrientation);
@@ -313,7 +317,9 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                         //String filename = sdf.format(mDate);
                         //saveBitmapToJpeg(cropCopyBitmap, filename);
                         if (bitmapToVideoEncoder != null) {
-                            bitmapToVideoEncoder.queueFrame(Bitmap.createBitmap(cropCopyBitmap));
+                            Bitmap copy = Bitmap.createBitmap(cropCopyBitmap);
+                            draw_date(new Canvas(copy));
+                            bitmapToVideoEncoder.queueFrame(copy);
                         }
 
 //                        final Paint paint = new Paint();
@@ -344,6 +350,14 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
     }
 
     private Integer HUMAN_RADIUS = 3;
+
+    private void draw_date(Canvas canvas) {
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+        mDate.setTime(System.currentTimeMillis());
+        mStringDate = mSimpleDateFormat.format(mDate);
+        canvas.drawText(mStringDate, 0, 20, paint);
+    }
 
     private void draw_humans(Canvas canvas, List<TensorFlowPoseDetector.Human> human_list) {
         //def draw_humans(img, human_list):
