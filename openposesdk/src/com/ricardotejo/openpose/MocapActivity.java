@@ -157,9 +157,13 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
         });
         mDate = new Date(System.currentTimeMillis());
         mSimpleDateFormat = new SimpleDateFormat("hh_mm_ss");
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) + "/position");
+        if (!file.exists()) {
+            file.mkdir();
+        }
         bitmapToVideoEncoder.startEncoding(cropSize, cropSize,
-                new File(getExternalFilesDir(Environment.DIRECTORY_DCIM),
-                        "position_" + mSimpleDateFormat.format(mDate) + ".mp4"));
+                 new File(file +
+                        "/position_" + mSimpleDateFormat.format(mDate) + ".mp4"));
         mSimpleDateFormat.applyPattern("yyyy/MM/dd_hh:mm:ss");
 
         sensorOrientation = rotation - getScreenOrientation();
@@ -188,6 +192,7 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
 //                });
 
         // TODO: Debug information ( to remove)
+
         addCallback(
                 new DrawCallback() {
                     @Override
@@ -228,16 +233,14 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                                 lines.add(line);
                             }
                         }
-                        lines.add("");
 
-
+                        /*
                         lines.add("Frame: " + previewWidth + "x" + previewHeight);
-
                         lines.add("Crop: " + copy.getWidth() + "x" + copy.getHeight());
                         lines.add("View: " + canvas.getWidth() + "x" + canvas.getHeight());
                         lines.add("Rotation: " + sensorOrientation);
                         lines.add("Inference time: " + lastProcessingTimeMs + "ms");
-
+                        */
                         lines.add("Start : " + wrongPose.getStartTime());
                         lines.add("Humans found: " + lastHumansFound);
                         lines.add("Sensitivity : " + getFirstSet());
@@ -278,7 +281,6 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
         readyForNextImage();
 
         final Canvas canvas = new Canvas(croppedBitmap);
-
         canvas.drawBitmap(rgbFrameBitmap, frameToCropTransform, null); // paint the cropped image
 
         //canvas.drawBitmap(rgbFrameBitmap,
@@ -297,6 +299,8 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                         LOGGER.i("Running detection on image " + currTimestamp);
                         final long startTime = SystemClock.uptimeMillis();
 
+                        cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
+
                         final List<Classifier.Recognition> results = detector.recognizeImage(croppedBitmap);
 
                         lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
@@ -306,10 +310,8 @@ public class MocapActivity extends CameraActivity implements OnImageAvailableLis
                         //cropCopyBitmap = Bitmap.createBitmap(results.get(0).heat);
                         //cropCopyBitmap = Bitmap.createBitmap(results.get(0).pose);
 
-                        cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
                         final Canvas canvas = new Canvas(cropCopyBitmap);
                         draw_humans(canvas, results.get(0).humans);
-
 
                         //mNow = System.currentTimeMillis();
                         //mDate = new Date(mNow);
